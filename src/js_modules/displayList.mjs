@@ -7,6 +7,7 @@ class CreateContainersForCharactersSection {
     this.newNodeFigCaption;
   }
 
+  
   createCharacterContainer (data, srcImage, section) {
     this.containerCharacters = document.getElementById(`container-characters-${section}-id`);
 
@@ -32,8 +33,4 @@ class CreateContainersForCharactersSection {
   }
 }
 
-export default CreateContainersForCharactersSection;
-
-
-
-
+export default CreateContainersForCharactersSection
