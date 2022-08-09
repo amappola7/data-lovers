@@ -7,3 +7,5 @@ const hpCharactersOrderedList = HarryPotterData.getOrderedNamesList();
 
 const creatingHTMLElements = new CreateContainersForCharactersSection();
 creatingHTMLElements.createCharacterContainer (hpCharactersOrderedList, "http://imageshack.com/f/po6UMYRmp", "list");
+
+
