@@ -14,8 +14,10 @@ class ProcessData {
     let importanceLevel4 = [];
     let importanceLevel5 = [];
 
-    this.characters.forEach(character => {
-      let characterName = character.name;
+    let characterData = [...this.characters]
+
+    characterData.forEach(character => {
+      let characterName = character//.name;
       let characterBooks = character.books_featured_in;
 
       switch (characterBooks.length) {
@@ -38,6 +40,7 @@ class ProcessData {
     });
 
     let allCharacters = importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).concat(importanceLevel4).concat(importanceLevel5);
+    
     return allCharacters;
   }
 }

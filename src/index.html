@@ -2,28 +2,50 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Lovers</title>
+    <title>Harry Potter</title>
+    <meta name="description" content="Characters from the Harry Potter movies, see information about their species, patronus, houses and books where they appear">
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Henny+Penny&family=IBM+Plex+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body>
-    <header>
+  <body class="body">
+  
+    <section class="content-welcome-page">
+    <article class="content-title-btn-welcome">
+      <article class="content-title-welcome-page">
+        <h1 class="title-welcome-page">Welcome to</h1>
+        <h1 class="title-welcome-page">Harry Potter's world</h1>
+      </article>
+      <article class="content-btn-welcome-page">
+        <button class="btn-start-welcome-page"><i class="fa-solid fa-wand-sparkles"></i>
+        </button>
+      </article>
+    </article>
+    </section>
+
+  <main class="main-page-class" class="main-page-id">
+    <header class="header-main-page" id="header-main-page-id">
       <nav>
         <ul>
-          <li><button type="button" class="button-modify-data" id="sort-button-id"><i class="fa-solid fa-arrow-down-wide-short"></i> Sort</button></li>
+          <li><button type="button" class="button-modify-data" id="sort-button-id" data-btn="Aquí estoy"><i class="fa-solid fa-arrow-down-wide-short"></i> Sort</button></li>
           <li><button type="button" class="button-modify-data" id="filter-button-id"><i class="fa-solid fa-filter"></i> Filter</button></li>
         </ul>
       </nav>
     </header>
-    <section class="container-characters-list-class" id="container-characters-list-id"></section>
+    <section class="container-characters-list" id="container-characters-list-id"></section>
+    <section class="container-characters-card" id="container-characters-card-id">
+    </section>
+  </main>
+
+    
     <footer>
       <ul class="pagination-list">
         
       </ul>
     </footer>
     <script src="./js_modules/main.mjs" type="module"></script>
+
   </body>
 </html>
