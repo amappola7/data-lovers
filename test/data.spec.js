@@ -48,7 +48,10 @@ describe('saludar', ()=>{
     expect(saludar('Norberto')).toBe("Hola Norberto cómo estás");
   });
 
-  
 })
 
-
+// Casos
+// Evaluar si es un prototipo
+// Que el argumento ingresado sea del tipo de dato correcto
+  // Arrojar error (type error) si no es del tipo correcto
+// Que la función retorne el tipo de dato correcto
