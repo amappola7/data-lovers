@@ -1,51 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Harry Potter</title>
     <meta name="description" content="Characters from the Harry Potter movies, see information about their species, patronus, houses and books where they appear">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter's World | Characters</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./desktop.css" media="screen and (min-width: 800px)"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Henny+Penny&family=IBM+Plex+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body class="body">
-  
-    <section class="content-welcome-page">
-    <article class="content-title-btn-welcome">
-      <article class="content-title-welcome-page">
-        <h1 class="title-welcome-page">Welcome to</h1>
-        <h1 class="title-welcome-page">Harry Potter's world</h1>
-      </article>
-      <article class="content-btn-welcome-page">
-        <button class="btn-start-welcome-page"><i class="fa-solid fa-wand-sparkles"></i>
-        </button>
-      </article>
-    </article>
-    </section>
+    <body class="body">
 
-  <main class="main-page-class" class="main-page-id">
-    <header class="header-main-page" id="header-main-page-id">
-      <nav>
-        <ul>
-          <li><button type="button" class="button-modify-data" id="sort-button-id" data-btn="Aquí estoy"><i class="fa-solid fa-arrow-down-wide-short"></i> Sort</button></li>
-          <li><button type="button" class="button-modify-data" id="filter-button-id"><i class="fa-solid fa-filter"></i> Filter</button></li>
-        </ul>
-      </nav>
-    </header>
-    <section class="container-characters-list" id="container-characters-list-id"></section>
-    <section class="container-characters-card" id="container-characters-card-id">
+    <!-- Start Welcome Page  -->
+    <section class="content-welcome-page" id="content-welcome-page-id">
+      <article class="content-title-btn-welcome">
+        <article class="content-title-welcome-page">
+          <h1 class="title-welcome-page">Welcome to the</h1>
+          <h1 class="title-welcome-page">Harry Potter 's World</h1>
+        </article>
+        <article class="content-btn-welcome-page">
+          <button class="btn-start-welcome-page" id="btn-start-welcome-page-id"><i class="fa-solid fa-wand-sparkles btn-start-welcome-icon" id="btn-start-welcome-icon-id"></i><span class="text-btn-start-welcome-page">Start</span></button>
+        </article>
+      </article>
     </section>
-  </main>
+    <!-- End Welcome Page -->
 
-    
-    <footer>
+    <!-- Start Main Page -->
+    <main class="main-page-class" id="main-page-id">
+
+      <!-- Header with filter and sort by buttons -->
+      <header class="header-main-page" id="header-main-page-id">
+        <nav>
+          <ul class="father-modal-menu">
+            <li><button type="button" class="button-modify-data sort-btn" id="sort-button-id" data-btn="Aquí estoy"><i class="fa-solid fa-arrow-down-wide-short"></i>Sort</button></li>
+            <ul class="sort-modal-menu" id="sort-modal-menu-id">
+              <li><button type="button" class="">Houses</button></li>
+            </ul>
+            <li><button type="button" class="button-modify-data" id="filter-button-id"><i class="fa-solid fa-filter"></i>Filter</button></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Characters List Section -->
+      <section class="container-characters-list" id="container-characters-list-id"></section>
+
+      <!-- Characters Card with Details Section -->
+      <section class="container-characters-card" id="container-characters-card-id"></section>
+
+    </main>
+    <!-- End Main Page -->
+
+    <!-- Footer with Pagination -->
+    <footer class="footer-main-page" id="footer-main-page-id">
       <ul class="pagination-list">
-        
+        <li><button class="btn-pagination btn-pagination-back button-modify-data" id="btn-pagination-back-id">Back</button></li>
+        <li><button class="btn-pagination btn-pagination-next button-modify-data" id="btn-pagination-next-id">Next</button></li>
       </ul>
     </footer>
-    <script src="./js_modules/main.mjs" type="module"></script>
 
+    <!-- JS Script -->
+    <script src="./js_modules/main.mjs" type="module"></script>
   </body>
 </html>

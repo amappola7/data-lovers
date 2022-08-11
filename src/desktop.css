@@ -1,0 +1,120 @@
+:root {
+  --general-text: 'IBM Plex Sans Thai', sans-serif;
+  --titles-text: 'Bubblegum Sans', cursive;
+  --welcome-text: 'Henny Penny', cursive;
+
+  --background-color: #151314;
+  --background-color-variation: #623914;
+  --enfasis-color: #FFC857;
+  --enfasis-color-variation: #FFE9D4;
+  --primary-color: #4d5466;
+  --primary-color-variation: #CDCDCD;
+  --transparency-color: rgba(205, 205, 205, 0.25);
+}
+
+/* Start Welcome Page Styles*/
+.content-welcome-page {
+  width: 100vw;
+  height: 100vh;
+  padding-left: 20rem;
+  padding-bottom: 8rem;
+}
+
+.title-welcome-page {
+  font-size: 5rem;
+}
+
+.content-btn-welcome-page {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.btn-start-welcome-page {
+  margin-top: 3rem;
+  margin-left: 23rem;
+}
+/* End Welcome Page Styles */
+
+/* Start Header Styles*/
+.header-main-page {
+  height: 8rem;
+}
+
+/* End Header Styles*/
+
+/* Start Characters List Section Styles */
+.container-characters-list {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 7rem 8rem;
+  justify-content: space-between;
+
+  padding: 4rem 15rem;
+}
+
+.newNodeFigure-list-class {
+  width: 22rem;
+  height: 22rem;
+  position: relative;
+  border: none;
+}
+
+.newNodeImage-list-class {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+}
+
+.newNodeFigCaption-list-class {
+  width: 100%;
+
+  justify-content: center;
+  align-self: flex-end;
+
+  position: absolute;
+  bottom: -3rem;
+}
+/* End Characters List Section Styles */
+
+/* Start Characters Card Section Styles */
+.newNodeFigure-card-class {
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8rem;
+  align-items: center;
+  background-color: var(--transparency-color);
+  padding: 0 12rem;
+}
+
+.character-card-img-class {
+  width: 45rem;
+  height: 45rem;
+  border-radius: 5rem;
+}
+
+.character-card-text-class {
+  background-color: transparent;
+}
+
+.newNodeFigure-card-class > button {
+  top: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+.content-title-birth-card-class > h3 {
+  font-size: 6rem;
+}
+
+.content-title-birth-card-class .birth {
+  font-size: 2rem;
+}
+
+.infoCharactersContainer > span {
+  font-size: 3rem;
+}
+/* End Characters Card Section Styles */

@@ -2,13 +2,13 @@
   --general-text: 'IBM Plex Sans Thai', sans-serif;
   --titles-text: 'Bubblegum Sans', cursive;
   --welcome-text: 'Henny Penny', cursive;
-
   --background-color: #151314;
   --background-color-variation: #623914;
   --enfasis-color: #FFC857;
   --enfasis-color-variation: #FFE9D4;
   --primary-color: #4D5466;
   --primary-color-variation: #CDCDCD;
+  --transparency-color: rgba(205, 205, 205, 0.25);
 }
 
 * {
@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  background-image: url("https://images.unsplash.com/photo-1618944913480-b67ee16d7b77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background-image: url("https://imagizer.imageshack.com/img923/1154/sNHY2f.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -33,41 +33,34 @@ body {
   background-color: black;
 }
 
-
-/* INICIO MAQUETACIÓN WELCOME PAGE */
-
+/* Start Welcome Page Styles*/
 .content-welcome-page{
   width: 100%;
   height: 93%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* display: none; */
-  
 }
 
 .content-title-btn-welcome{
-    height: 27%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  
+  height: 27%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .content-title-welcome-page{
-    font-size: 60px;
-    font-family: var(--welcome-text);
-    
-    height: 60%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding-left: 54px;
+  font-family: var(--welcome-text);
+  height: 60%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 2.4rem;
 }
 
 .content-btn-welcome-page{
-  width: 47%;
+  width: 60%;
   display: flex;
   justify-content: flex-end;
 }
@@ -75,57 +68,65 @@ body {
 .title-welcome-page{
   font-family: var(--welcome-text);
   color: #FFFFFF;
-  font-size: 8rem;
+  font-size: 2.5rem;
   font-weight: lighter;
-
 }
 
 .btn-start-welcome-page{
-  background-color:var(--enfasis-color);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 5rem;
-  font-weight: bold;
-  color:var(--background-color-variation);
+  height: 3.5rem;
+  width: 12.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 12rem;
-  width: 12rem;
-  transform: rotate(0);
-  transition: .3s ease;
+  background-color:var(--enfasis-color);
+  border: none;
+  border-radius: 3rem;
+  outline: auto 0.1rem;
+  cursor: pointer;
+  font-size: 2.1rem;
+  font-weight: bold;
+  color:var(--background-color-variation);
 }
 
-.btn-start-welcome-page:hover{
-  transform: rotate(90deg);
+.content-btn-welcome-page > button:hover{
   background-color: #623914;
   color: #FFE9D4;
   outline: auto;
 }
 
+.btn-start-welcome-page > .btn-start-welcome-icon{
+  transform: rotate(0); 
+  transition: .3s ease; 
+}
 
+.btn-start-welcome-icon:hover{
+  transform: rotate(90deg);
+}
 
-/* FIN MAQUETACIÓN WELCOME PAGE */
+.text-btn-start-welcome-page{
+  /* font-family: var(--general-text);
+  color:#FFFFFF;
+  margin-left: 0.8rem; */
+}
+/* End Welcome Page Styles */
 
-/* INICIO MAQUETACIÓN HEADER PÁGINA PRINCIPAL*/
+/* Start Main Page Styles*/
 .main-page-class{
-  display: flex;
   display: none;
   flex-direction: column;
   justify-content: center;
 }
+/* End Main Page Styles*/
 
+/* Start Header Styles*/
 .header-main-page {
-  width: 100vw;
-  height: 15rem;
- 
+  width: 100%;
+  height: 6.5rem;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
-
   width: 100vw;
   height: 100%;
 }
@@ -133,173 +134,225 @@ nav {
 ul {
   display: flex;
   justify-content: flex-end;
-
   width: 100vw;
   height: 100%;
+}
+
+.father-modal-menu {
+  position: relative;
 }
 
 li {
   list-style: none;
 }
 
-
-
-.hidden-btn-order{
- display: none; 
-}
-
-
-.hidden-btn-filter{
- display: none; 
-}
-
-
 .button-modify-data {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 18.5rem;
-  height: 6rem;
+  width: 9rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 4rem;
   margin-top: 4rem;
   margin-right: 3rem;
-
   font-family: var(--general-text);
-  font-size: 2.8rem;
+  font-size: 1.8rem;
+  font-weight: 500;
   color: white;
+  background-color: var(--primary-color);
+  box-shadow: 0px 3px 5px #676e80;
+}
+
+.header-main-page i {
+  padding-right: 1rem;
+}
+
+.sort-modal-menu {
+  width: 20rem;
+  height: 12rem;
+  border-radius: 2rem;
+  margin-top: 2rem;
+
+  display: none;
+  position: absolute;
+  bottom: -13rem;
+  right: 15rem;
+  z-index: 1;
 
   background-color: var(--primary-color);
 
+  color: #FFFFFF;
 }
-/* FIN MAQUETACIÓN HEADER */
 
 
-/* INICIO MAQUETACIÓN PÁGINA PRINCIPAL (LISTA DE PERSONAJES) */
+/* End Header Styles */
 
-.container-characters-list-class {
+/* Start Characters List Section Styles */
+.container-characters-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 4rem;
-
+  row-gap: 2rem;
   width: 100vw;
-  padding: 0rem 7rem;
+  padding-top: 3rem;
 
-  /* display: none; */
 }
 
 .newNodeFigure-list-class {
   display: flex;
-  width: 100%;
-  height: 20rem;
-  border: solid 0.35rem white;
+  align-items: center;
+  justify-content: space-around;
+  width: 90.84%;
+  height: 8.1rem;
+  border: solid 0.15rem white;
   border-radius: 3rem;
-  padding: 2rem;
   background-color: transparent;
+}
+
+.newNodeFigure-list-class:hover {
+  cursor: pointer;
 }
 
 .newNodeImage-list-class {
   width: auto;
-  height: 100%;
+  height: 88%;
   border: 0;
   border-radius: 50%;
-  margin-left: 4rem;
 }
 
 .newNodeFigCaption-list-class {
   display: flex;
   align-items: center;
-  width: 80%;
-  margin-left: 3rem;
+  width: 70%;
   font-family: var(--titles-text);
-  font-size: 5rem;
+  font-size: 2.5rem;
   color: white;
 }
-/* FIN MAQUETACIÓN PÁGINA PRINCIPAL */
+/* End Characters List Section Styles */
 
 
-/* INICIO MAQUETACIÓN DETALLE PERSONAJES */
-.container-characters-card{
-  width: 90%;
-  height: 80%;
+/* Start Characters Card Section Styles */
+.container-characters-card {
+  width: 100vw;
+  height: 100vh;
   margin: auto;
-  display: flex;
+  display: none;
   justify-content: center;
-  
-
+  align-items: center;
 }
 
-.character-card-img-class{
+.character-card-img-class {
   width: 100%;
-  height: 45%;
+  height: 44%;
 }
 
-.newNodeFigure-card-class{
-  width: 100%;
-  height: 100%;
-
+.newNodeFigure-card-class {
+  width: 84%;
+  height: 81%;
   display: flex;
   flex-direction: column;
-  
-  border-radius: 8rem;
+  border-radius: 4rem;
   overflow: hidden;
 }
 
-.newNodeFigure-card-class > button{
-  width: 6rem;
-  height: 6rem;
+.newNodeFigure-card-class > button {
+  width: 3rem;
+  height: 3rem;
   position: absolute;
-  top: 20rem;
-  right: 7rem;
-
+  top: 7.5rem;
+  right: 5rem;
   border-radius: 50%;
   border: none;
   background-color: var(--primary-color);
   color: #FFFFFF;
-  font-size: 3rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.character-card-text-class{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-left: 4rem;
-    padding-top: 4rem;
-    align-items: center;
-    background-color: rgba(205, 205, 205, 0.25);
+button:hover {
+  background-color: #FFFFFF;
+  color: var(--primary-color);
+  /* outline: auto; */
+  cursor: pointer;
 }
 
-.character-card-text-class > h3 {
-  font-family: var(--titles-text);
-    font-size: 8rem;
-    color: #FFFFFF;
-    font-weight: lighter;
-    
-}
-
-.infoCharactersContainer{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 4.8rem;
-}
-
-.infoCharactersContainer > span {
-    font-family: var(--general-text);
-    font-size: 4.8rem;
-    color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-}
-
-.character-card-text-class .birth {
-  font-family: var(--general-text);
-  font-size: 4rem;
+button:active {
+  background-color: var(--primary-color);
   color: #FFFFFF;
 }
 
+.character-card-text-class{
+  width: 100%;
+  height: 78%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--transparency-color);
+  justify-content: space-evenly;
+}
+
+.content-title-birth-card-class{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.content-title-birth-card-class > h3 {
+  font-family: var(--titles-text);
+  font-size: 3rem;
+  color: #FFFFFF;
+  font-weight: lighter;
+  letter-spacing: 0.1rem;
+}
+
+.content-title-birth-card-class .birth {
+  font-family: var(--general-text);
+  font-size: 1.5rem;
+  color: #FFFFFF;
+  text-align: center;
+
+}
+
+.infoCharactersContainer{
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoCharactersContainer > span {
+  font-family: var(--general-text);
+  font-size: 1.7rem;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+/* End Characters Card Section Styles */
+
+/* Start Footer Styles*/
+.footer-main-page {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.pagination-list {
+  width: inherit;
+  height: inherit;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li >.btn-pagination {
+  margin: 2rem;
+  padding: 0;
+}
+/* End Footer Styles*/
 
 
-/* :nth-child(4n)
- */
