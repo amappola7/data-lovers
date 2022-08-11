@@ -33,25 +33,24 @@ body {
   background-color: black;
 }
 
-/* .body{
-  opacity: 90%;
-} */
+
 /* INICIO MAQUETACIÓN WELCOME PAGE */
+
 .content-welcome-page{
   width: 100%;
   height: 93%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  display: none;
-
+  /* display: none; */
+  
 }
 
 .content-title-btn-welcome{
-  height: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    height: 27%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   
 }
 
@@ -68,15 +67,16 @@ body {
 }
 
 .content-btn-welcome-page{
-  width: 39%;
+  width: 47%;
   display: flex;
   justify-content: flex-end;
-
 }
 
 .title-welcome-page{
-  font-size: var(--welcome-text);
+  font-family: var(--welcome-text);
   color: #FFFFFF;
+  font-size: 8rem;
+  font-weight: lighter;
 
 }
 
@@ -85,30 +85,41 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 50px;
+  font-size: 5rem;
   font-weight: bold;
   color:var(--background-color-variation);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  width: 100px;
+  height: 12rem;
+  width: 12rem;
   transform: rotate(0);
   transition: .3s ease;
 }
 
 .btn-start-welcome-page:hover{
-  transform: rotate(224deg);
+  transform: rotate(90deg);
   background-color: #623914;
   color: #FFE9D4;
+  outline: auto;
 }
 
+
+
 /* FIN MAQUETACIÓN WELCOME PAGE */
+
+/* INICIO MAQUETACIÓN HEADER PÁGINA PRINCIPAL*/
+.main-page-class{
+  display: flex;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .header-main-page {
   width: 100vw;
   height: 15rem;
-  display: block;
+ 
 }
 
 nav {
@@ -160,6 +171,10 @@ li {
   background-color: var(--primary-color);
 
 }
+/* FIN MAQUETACIÓN HEADER */
+
+
+/* INICIO MAQUETACIÓN PÁGINA PRINCIPAL (LISTA DE PERSONAJES) */
 
 .container-characters-list-class {
   display: flex;
@@ -169,28 +184,23 @@ li {
 
   width: 100vw;
   padding: 0rem 7rem;
-}
 
-.hidden{
-  display: block;
+  /* display: none; */
 }
 
 .newNodeFigure-list-class {
   display: flex;
-
   width: 100%;
   height: 20rem;
   border: solid 0.35rem white;
   border-radius: 3rem;
   padding: 2rem;
-
   background-color: transparent;
 }
 
 .newNodeImage-list-class {
   width: auto;
   height: 100%;
-
   border: 0;
   border-radius: 50%;
   margin-left: 4rem;
@@ -199,15 +209,97 @@ li {
 .newNodeFigCaption-list-class {
   display: flex;
   align-items: center;
-
   width: 80%;
   margin-left: 3rem;
-
   font-family: var(--titles-text);
   font-size: 5rem;
   color: white;
 }
+/* FIN MAQUETACIÓN PÁGINA PRINCIPAL */
 
+
+/* INICIO MAQUETACIÓN DETALLE PERSONAJES */
 .container-characters-card{
-  display: none;
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  
+
 }
+
+.character-card-img-class{
+  width: 100%;
+  height: 45%;
+}
+
+.newNodeFigure-card-class{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  
+  border-radius: 8rem;
+  overflow: hidden;
+}
+
+.newNodeFigure-card-class > button{
+  width: 6rem;
+  height: 6rem;
+  position: absolute;
+  top: 20rem;
+  right: 7rem;
+
+  border-radius: 50%;
+  border: none;
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+  font-size: 3rem;
+}
+
+.character-card-text-class{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+    padding-top: 4rem;
+    align-items: center;
+    background-color: rgba(205, 205, 205, 0.25);
+}
+
+.character-card-text-class > h3 {
+  font-family: var(--titles-text);
+    font-size: 8rem;
+    color: #FFFFFF;
+    font-weight: lighter;
+    
+}
+
+.infoCharactersContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4.8rem;
+}
+
+.infoCharactersContainer > span {
+    font-family: var(--general-text);
+    font-size: 4.8rem;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.character-card-text-class .birth {
+  font-family: var(--general-text);
+  font-size: 4rem;
+  color: #FFFFFF;
+}
+
+
+
+/* :nth-child(4n)
+ */
