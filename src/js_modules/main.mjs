@@ -32,8 +32,7 @@ const HarryPotterData = new ProcessData(data);
 
 // Display main page and characters list
 const creatingHTMLElements = new CreateContainersForCharactersSection();
-creatingHTMLElements.addCharacterList(HarryPotterData.charactersPerPage(), "http://imageshack.com/f/pnUFd2QWp", "list");
-
+creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 
 // Create events to pagination
 // Next Page
