@@ -42,8 +42,17 @@ class ProcessData {
   
       // this.allCharacters = importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).concat(importanceLevel4).concat(importanceLevel5);
       let allCharacters = importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).concat(importanceLevel4).concat(importanceLevel5);
-    // console.log(this.allCharacters)
     // console.log(allCharacters)
+    // allCharacters.forEach((elem, index)=>{
+    //   if(elem.name === 'Harry Potter'){
+    //     let indexHarryPotter = index
+    //     if(indexHarryPotter <= 50){
+    //       return true
+    //     }else{
+    //       return false
+    //     }
+    //   }
+    // })
       return allCharacters;
     }
   
