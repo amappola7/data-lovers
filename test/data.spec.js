@@ -18,8 +18,4 @@ describe('functionProcessData', ()=>{
   it('is a function',()=>{
     expect(typeof functionProcessData).toEqual('object');
   });
-
-  //   it('debería retornar los actores ordenados', function() {
-  //   expect(functionProcessData).toBe(49998);
-  // });
 });
