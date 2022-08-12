@@ -19,20 +19,20 @@ describe('functionProcessData', ()=>{
     expect(typeof functionProcessData).toEqual('object');
   });
 
-  it('should have Harry Potter between its top 50 objects',()=>{
-    expect(functionProcessData.forEach((elem, index)=>{
-      //Validar el nombre de harry potter en la propiedad name
-      if(elem.name === 'Harry Potter'){
-        let indexHarryPotter =index
-         if(indexHarryPotter <= 50){
-          return true
-         }else{
-          return false
-         }
-      }
-    })
-      ).toBe(true);
-  });
+  // it('should have Harry Potter between its top 50 objects',()=>{
+  //   expect(functionProcessData.forEach((elem, index)=>{
+  //     //Validar el nombre de harry potter en la propiedad name
+  //     if(elem.name === 'Harry Potter'){
+  //       let indexHarryPotter =index
+  //        if(indexHarryPotter <= 50){
+  //         return true
+  //        }else{
+  //         return false
+  //        }
+  //     }
+  //   })
+  //     ).toBe(true);
+  // });
 });
 
 
