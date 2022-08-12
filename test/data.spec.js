@@ -1,54 +1,25 @@
-// import { example, anotherExample } from '../src/data.js';
+import data from '../src/data/harrypotter/data.js'
+import ProcessData from '../src/data.js'
+// import HarryPotterData from '../src/js_modules/allData.mjs'
+ let proccessData = new ProcessData(data);
+ let functionProcessData =  proccessData.getOrderedNamesList();
 
+describe('ProcessData', ()=>{
+  it('is a object',()=>{
+    expect(typeof ProcessData).toEqual('function');
+  });
 
-// describe('example', () => {
-//   it('is a function', () => {
-//     expect(typeof example).toBe('function');
-//   });
+  it('is a object',()=>{
+    expect(typeof proccessData).toEqual('object');
+  });
+});
 
-//   it('returns `example`', () => {
-//     expect(example()).toBe('example');
-//   });
-// });
-
-
-// describe('anotherExample', () => {
-//   it('is a function', () => {
-//     expect(typeof anotherExample).toBe('function');
-//   });
-
-//   it('returns `anotherExample`', () => {
-//     expect(anotherExample()).toBe('OMG');
-//   });
-// });
-
-import { encontrarDiez, saludar } from '../src/data.js';
-
-describe('encontrarDiez', ()=>{
+describe('functionProcessData', ()=>{
   it('is a function',()=>{
-    expect(typeof encontrarDiez).toBe('function')
+    expect(typeof functionProcessData).toEqual('object');
   });
 
-  it('debería retornar true para "1234"', () => {
-    expect(encontrarDiez('1234')).toBe(true);
-  });
-
-  // it('debería retornar true para "1234"', () => {
-  //   expect(encontrarDiez()).toBe(undefined);
+  //   it('debería retornar los actores ordenados', function() {
+  //   expect(functionProcessData).toBe(49998);
   // });
-
-})
-
-describe('saludar', ()=>{
-  it('is a function',()=>{
-    expect(typeof saludar).toBe('function')
-  });
-
-  it('debería retornar "Hola Norberto cómo estás" para "Norberto"', () => {
-    expect(saludar('Norberto')).toBe("Hola Norberto cómo estás");
-  });
-
-  
-})
-
-
+});

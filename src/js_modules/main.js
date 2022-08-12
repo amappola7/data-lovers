@@ -1,7 +1,7 @@
 // main.mjs - DOM Events
 
-import data from '../data/harrypotter/data.mjs';
-import ProcessData from './allData.mjs';
+import data from '../data/harrypotter/data.js';
+import ProcessData from '../data.js';
 import CreateContainersForCharactersSection from './displayList.mjs';
 import DetailsCharacters from './detailsCharacters.mjs'
 
