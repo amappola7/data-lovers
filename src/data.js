@@ -47,13 +47,12 @@ class ProcessData {
   
     // Creating array with characters to pagination to the next page
     goToNextPage() {
-       const allCharacters = this.getOrderedNamesList();
+      const allCharacters = this.getOrderedNamesList();
       let pageCharacters = [];
       let maxCharactersPerPage = this.characterPosition + 7;
       for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
         pageCharacters.push(allCharacters[i]);
       }
-  
       this.characterPosition = maxCharactersPerPage + 1;
       return pageCharacters;
     }

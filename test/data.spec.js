@@ -1,22 +1,11 @@
 import data from '../src/data/harrypotter/data.js'
 import ProcessData from '../src/data.js'
-// import HarryPotterData from '../src/js_modules/allData.mjs'
- let proccessData = new ProcessData(data);
 
- //To test in method getOrderedNamesList()
- let functionProcessData =  proccessData.getOrderedNamesList();
- let the20BooksOnTheList = functionProcessData.slice(0,20)
- let expected = the20BooksOnTheList.map((e)=>{return e.books_featured_in})
+//Get class instance ProcessData, whose parameter is the data
+let proccessData = new ProcessData(data);
+let functionProcessData =  proccessData.getOrderedNamesList();
 
-
-let findingHarryPotter = the20BooksOnTheList.filter((e)=>{
-     return e.name === "Harry Potter" ? true : false
-})
-
-let findingToAnotherChar = the20BooksOnTheList.filter((e)=>{
-  return e.name === "Peregrine Derrick" ? true : false
-})
-
+//Start test in method getOrderedNamesList()
  describe('ProcessData', ()=>{
   it('is a object',()=>{
     expect(typeof ProcessData).toEqual('function');
@@ -35,16 +24,31 @@ describe('functionProcessData', ()=>{
   it('should receive an object as an argument',()=>{
     expect(typeof data).toEqual('object');
   });
+
   it('the first 20 characters should appear in all 7 books',()=>{
     expect(functionProcessData.map((elem)=>{
         return elem.books_featured_in
-    })).toEqual(expect.arrayContaining(expected));
-});
-  it('Harry Potter should be in this array',()=>{
-    expect(functionProcessData).toEqual(expect.arrayContaining(findingHarryPotter));
+    })).toEqual(expect.arrayContaining(functionProcessData.slice(0,20).map((e)=>{
+        return e.books_featured_in
+    })))
   });
-  it('Peregrine Derrick should not be in this array',()=>{
-    expect(functionProcessData).toEqual(expect.arrayContaining(findingToAnotherChar));
+
+  it('Harry Potter should be in the top 20 items in the array',()=>{
+    expect(functionProcessData.slice(0,20)).
+    toEqual(expect.arrayContaining(functionProcessData.filter((e)=>{
+      if(e.name === "Harry Potter" ){
+          return e
+      }
+    })));
+  });
+
+  it('Peregrine Derrick should not be in the top 20 items in the array',()=>{
+    expect(functionProcessData.slice(0,20)).
+    toEqual(expect.not.arrayContaining(functionProcessData.filter((e)=>{
+      if(e.name === 'Peregrine Derrick'){
+        return e
+    }
+    })));
   });
 
   })
