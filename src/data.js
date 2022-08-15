@@ -3,8 +3,8 @@ class ProcessData {
       // Importing characters and books from the dataset file
       this.characters = data.characters;
       this.books = data.books;
-      this.allCharacters = []
       this.characterPosition = 0;
+      
     }
   
     // Creating the list of characters ordered by the number of books they appear in
@@ -39,27 +39,15 @@ class ProcessData {
             break;
         }
       });
-  
-      // this.allCharacters = importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).concat(importanceLevel4).concat(importanceLevel5);
-      let allCharacters = importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).concat(importanceLevel4).concat(importanceLevel5);
-    // console.log(allCharacters)
-    // allCharacters.forEach((elem, index)=>{
-    //   if(elem.name === 'Harry Potter'){
-    //     let indexHarryPotter = index
-    //     if(indexHarryPotter <= 50){
-    //       return true
-    //     }else{
-    //       return false
-    //     }
-    //   }
-    // })
-      return allCharacters;
-    }
+
+       let allArrayCharacters =  importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).concat(importanceLevel4).concat(importanceLevel5);
+        
+           return allArrayCharacters
+   }
   
     // Creating array with characters to pagination to the next page
     goToNextPage() {
-       
-      const allCharacters = this.getOrderedNamesList();
+       const allCharacters = this.getOrderedNamesList();
       let pageCharacters = [];
       let maxCharactersPerPage = this.characterPosition + 7;
       for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {

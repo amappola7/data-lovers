@@ -2,9 +2,22 @@ import data from '../src/data/harrypotter/data.js'
 import ProcessData from '../src/data.js'
 // import HarryPotterData from '../src/js_modules/allData.mjs'
  let proccessData = new ProcessData(data);
- let functionProcessData =  proccessData.getOrderedNamesList();
 
-describe('ProcessData', ()=>{
+ //To test in method getOrderedNamesList()
+ let functionProcessData =  proccessData.getOrderedNamesList();
+ let the20BooksOnTheList = functionProcessData.slice(0,20)
+ let expected = the20BooksOnTheList.map((e)=>{return e.books_featured_in})
+
+
+let findingHarryPotter = the20BooksOnTheList.filter((e)=>{
+     return e.name === "Harry Potter" ? true : false
+})
+
+let findingToAnotherChar = the20BooksOnTheList.filter((e)=>{
+  return e.name === "Peregrine Derrick" ? true : false
+})
+
+ describe('ProcessData', ()=>{
   it('is a object',()=>{
     expect(typeof ProcessData).toEqual('function');
   });
@@ -19,25 +32,19 @@ describe('functionProcessData', ()=>{
     expect(typeof functionProcessData).toEqual('object');
   });
 
-  // it('should have Harry Potter between its top 50 objects',()=>{
-  //   expect(functionProcessData.forEach((elem, index)=>{
-  //     //Validar el nombre de harry potter en la propiedad name
-  //     if(elem.name === 'Harry Potter'){
-  //       let indexHarryPotter =index
-  //        if(indexHarryPotter <= 50){
-  //         return true
-  //        }else{
-  //         return false
-  //        }
-  //     }
-  //   })
-  //     ).toBe(true);
-  // });
+  it('should receive an object as an argument',()=>{
+    expect(typeof data).toEqual('object');
+  });
+  it('the first 20 characters should appear in all 7 books',()=>{
+    expect(functionProcessData.map((elem)=>{
+        return elem.books_featured_in
+    })).toEqual(expect.arrayContaining(expected));
 });
+  it('Harry Potter should be in this array',()=>{
+    expect(functionProcessData).toEqual(expect.arrayContaining(findingHarryPotter));
+  });
+  it('Peregrine Derrick should not be in this array',()=>{
+    expect(functionProcessData).toEqual(expect.arrayContaining(findingToAnotherChar));
+  });
 
-
-//Validar el nombre de harry potter en la propiedad name
-//Encontra la posición del objeto de Harry Potter en el arreglo
-//Validar que si la posición está dentro de los primeros 50 personajes
-//Si se encuentra entre los primeros 50 retornar verdadero
-//Si no se encuentra entre los primeros 50 retornar falso
+  })
