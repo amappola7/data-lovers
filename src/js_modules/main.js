@@ -32,16 +32,16 @@ const HarryPotterData = new ProcessData(data);
 
 // Display main page and characters list
 const creatingHTMLElements = new CreateContainersForCharactersSection();
-creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(data), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 
 // Create events to pagination
 // Next Page
 btnNextPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(data), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 })
 // Previous Page
 btnPreviousPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(data), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 })
 
 // Create characters card

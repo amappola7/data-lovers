@@ -2,8 +2,8 @@ import data from '../src/data/harrypotter/data.js'
 import ProcessData from '../src/data.js'
 
 //Get class instance ProcessData, whose parameter is the data
-let proccessData = new ProcessData(data);
-let functionProcessData =  proccessData.getOrderedNamesList();
+let processData = new ProcessData();
+let functionProcessData =  processData.getOrderedNamesList(data);
 
 //Start test in method getOrderedNamesList()
  describe('ProcessData', ()=>{
@@ -12,7 +12,7 @@ let functionProcessData =  proccessData.getOrderedNamesList();
   });
 
   it('is a object',()=>{
-    expect(typeof proccessData).toEqual('object');
+    expect(typeof processData).toEqual('object');
   });
 });
 

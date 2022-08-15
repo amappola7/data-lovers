@@ -1,23 +1,22 @@
 class ProcessData {
-    constructor (data) {
+    constructor () {
       // Importing characters and books from the dataset file
-      this.characters = data.characters;
-      this.books = data.books;
+      this.characters = [];
+      // this.books = data.books;
       this.characterPosition = 0;
       
     }
   
     // Creating the list of characters ordered by the number of books they appear in
-    getOrderedNamesList() {
+    getOrderedNamesList(data) {
       let importanceLevel1 = [];
       let importanceLevel2 = [];
       let importanceLevel3 = [];
       let importanceLevel4 = [];
       let importanceLevel5 = [];
   
-      let characterData = this.characters
-  
-      characterData.forEach(character => {
+      this.characters = data.characters
+      this.characters.forEach(character => {
         let characterName = character;
         let characterBooks = character.books_featured_in;
   
@@ -46,20 +45,21 @@ class ProcessData {
    }
   
     // Creating array with characters to pagination to the next page
-    goToNextPage() {
-      const allCharacters = this.getOrderedNamesList();
+    goToNextPage(data) {
+      const allCharacters = this.getOrderedNamesList(data);
       let pageCharacters = [];
       let maxCharactersPerPage = this.characterPosition + 7;
       for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
         pageCharacters.push(allCharacters[i]);
       }
+  
       this.characterPosition = maxCharactersPerPage + 1;
       return pageCharacters;
     }
   
     // Creating array with characters to pagination to the previous page
-    goToPreviousPage() {
-      const allCharacters = this.getOrderedNamesList();
+    goToPreviousPage(data) {
+      const allCharacters = this.getOrderedNamesList(data);
       let pageCharacters = [];
       this.characterPosition -= 16;
       let maxCharactersPerPage = this.characterPosition + 7;
