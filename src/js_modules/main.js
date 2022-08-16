@@ -1,5 +1,4 @@
 // main.mjs - DOM Events
-
 import dataCruda from '../data/harrypotter/data.mjs';
 import ProcessData from './allData.mjs';
 import CreateContainersForCharactersSection from './displayList.mjs';

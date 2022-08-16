@@ -1,54 +1,43 @@
-// import { example, anotherExample } from '../src/data.js';
+import data from '../src/data/harrypotter/data.js'
+import ProcessData from '../src/data.js'
+// import HarryPotterData from '../src/js_modules/allData.mjs'
+ let proccessData = new ProcessData(data);
+ let functionProcessData =  proccessData.getOrderedNamesList();
 
+describe('ProcessData', ()=>{
+  it('is a object',()=>{
+    expect(typeof ProcessData).toEqual('function');
+  });
 
-// describe('example', () => {
-//   it('is a function', () => {
-//     expect(typeof example).toBe('function');
-//   });
+  it('is a object',()=>{
+    expect(typeof proccessData).toEqual('object');
+  });
+});
 
-//   it('returns `example`', () => {
-//     expect(example()).toBe('example');
-//   });
-// });
-
-
-// describe('anotherExample', () => {
-//   it('is a function', () => {
-//     expect(typeof anotherExample).toBe('function');
-//   });
-
-//   it('returns `anotherExample`', () => {
-//     expect(anotherExample()).toBe('OMG');
-//   });
-// });
-
-import { encontrarDiez, saludar } from '../src/data.js';
-
-describe('encontrarDiez', ()=>{
+describe('functionProcessData', ()=>{
   it('is a function',()=>{
-    expect(typeof encontrarDiez).toBe('function')
+    expect(typeof functionProcessData).toEqual('object');
   });
 
-  it('debería retornar true para "1234"', () => {
-    expect(encontrarDiez('1234')).toBe(true);
-  });
-
-  // it('debería retornar true para "1234"', () => {
-  //   expect(encontrarDiez()).toBe(undefined);
+  // it('should have Harry Potter between its top 50 objects',()=>{
+  //   expect(functionProcessData.forEach((elem, index)=>{
+  //     //Validar el nombre de harry potter en la propiedad name
+  //     if(elem.name === 'Harry Potter'){
+  //       let indexHarryPotter =index
+  //        if(indexHarryPotter <= 50){
+  //         return true
+  //        }else{
+  //         return false
+  //        }
+  //     }
+  //   })
+  //     ).toBe(true);
   // });
-
-})
-
-describe('saludar', ()=>{
-  it('is a function',()=>{
-    expect(typeof saludar).toBe('function')
-  });
-
-  it('debería retornar "Hola Norberto cómo estás" para "Norberto"', () => {
-    expect(saludar('Norberto')).toBe("Hola Norberto cómo estás");
-  });
-
-  
-})
+});
 
 
+//Validar el nombre de harry potter en la propiedad name
+//Encontra la posición del objeto de Harry Potter en el arreglo
+//Validar que si la posición está dentro de los primeros 50 personajes
+//Si se encuentra entre los primeros 50 retornar verdadero
+//Si no se encuentra entre los primeros 50 retornar falso

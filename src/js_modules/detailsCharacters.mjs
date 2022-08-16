@@ -76,4 +76,4 @@ class DetailsCharacters extends CreateContainersForCharactersSection {
     }
 }
 
-export default DetailsCharacters
+ export default DetailsCharacters
