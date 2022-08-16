@@ -1,9 +1,12 @@
 // main.mjs - DOM Events
 
-import data from '../data/harrypotter/data.mjs';
+import dataCruda from '../data/harrypotter/data.mjs';
 import ProcessData from './allData.mjs';
 import CreateContainersForCharactersSection from './displayList.mjs';
 import DetailsCharacters from './detailsCharacters.mjs'
+
+// Data Cruda
+const data = dataCruda;
 
 // DOM Selectors
 const welcomePage = document.getElementById("content-welcome-page-id");
@@ -29,6 +32,7 @@ btnStartWelcomePage.addEventListener("click", () => {
 
 // Create ordered characters list
 const HarryPotterData = new ProcessData(data);
+console.log(HarryPotterData.getOrderedNamesList());
 
 // Display main page and characters list
 const creatingHTMLElements = new CreateContainersForCharactersSection();
