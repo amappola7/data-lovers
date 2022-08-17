@@ -6,16 +6,24 @@ import DetailsCharacters from './detailsCharacters.mjs'
 //prueba
 import RawData from './rawData.js'
 
+// Data Cruda
+const data = dataCruda;
+
 // DOM Selectors
 const welcomePage = document.getElementById("content-welcome-page-id");
 const btnStartWelcomePage = document.getElementById("btn-start-welcome-page-id");
 const header = document.getElementById("header-main-page-id");
 const mainPage = document.getElementById("main-page-id");
+const containerCharactersList = document.getElementById("container-characters-list-id");
 const footer = document.getElementById("footer-main-page-id");
 const btnNextPage = document.getElementById("btn-pagination-next-id");
 const btnPreviousPage = document.getElementById("btn-pagination-back-id");
 const sortBtn = document.getElementById("sort-button-id");
+const exitSortBtn = document.getElementById("exit-sort-modal-menu-id");
 const sortModalMenu = document.getElementById("sort-modal-menu-id");
+const filterBtn = document.getElementById("filter-button-id");
+const exitFilterBtn = document.getElementById("exit-filter-modal-menu-id");
+const filterModalMenu = document.getElementById("filter-modal-menu-id")
 
 // Characters - Dataset
 let rawData = new RawData(data)
@@ -75,12 +83,33 @@ btnCloseDetailsDataCharacters.addEventListener('click', () => {
     creatingHTMLElements.displayListCharacters()
 })
 
-
 // Open modal menu in sort button
 sortBtn.addEventListener("click", () => {
     sortModalMenu.style.display = "flex";
 })
 
+// Close modal menu in sort button
+exitSortBtn.addEventListener("click", () => {
+    sortModalMenu.style.display = "none";
+})
 
+
+// Open modal menu in filter button
+filterBtn.addEventListener("click", () => {
+    filterModalMenu.style.display = "flex";
+    sortBtn.style.display = "none";
+    filterBtn.style.display = "none";
+    containerCharactersList.style.display = "none";
+    footer.style.display = "none";
+})
+
+// Close modal menu in filter button
+exitFilterBtn.addEventListener("click", () => {
+    filterModalMenu.style.display = "none";
+    sortBtn.style.display = "";
+    filterBtn.style.display = "";
+    containerCharactersList.style.display = "";
+    footer.style.display = "block";
+})
 
 

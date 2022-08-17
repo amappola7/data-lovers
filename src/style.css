@@ -8,7 +8,9 @@
   --enfasis-color-variation: #FFE9D4;
   --primary-color: #4D5466;
   --primary-color-variation: #CDCDCD;
+  --primary-color-variation-dark: #484850;
   --transparency-color: rgba(205, 205, 205, 0.25);
+  --transparency-color-dark: rgba(21, 19, 20, 0.4);
 }
 
 * {
@@ -96,19 +98,20 @@ body {
 }
 
 .btn-start-welcome-page > .btn-start-welcome-icon{
-  transform: rotate(0); 
-  transition: .3s ease; 
+  transform: rotate(0);
+  transition: .3s ease;
 }
 
 .btn-start-welcome-icon:hover{
   transform: rotate(90deg);
 }
 
-.text-btn-start-welcome-page{
-  /* font-family: var(--general-text);
+/* .text-btn-start-welcome-page{
+  font-family: var(--general-text);
   color:#FFFFFF;
-  margin-left: 0.8rem; */
-}
+  margin-left: 0.8rem;
+} */
+
 /* End Welcome Page Styles */
 
 /* Start Main Page Styles*/
@@ -169,24 +172,138 @@ li {
   padding-right: 1rem;
 }
 
+/* Star Sort Modal Menu Styles */
 .sort-modal-menu {
-  width: 20rem;
-  height: 12rem;
-  border-radius: 2rem;
-  margin-top: 2rem;
+  width: 100vw;
+  height: 100vh;
 
   display: none;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   position: absolute;
-  bottom: -13rem;
-  right: 15rem;
   z-index: 1;
 
-  background-color: var(--primary-color);
+  background-color: var(--transparency-color-dark);
 
+  font-family: var(--general-text);
+  font-size: 2.8rem;
+  font-weight: 700;
   color: #FFFFFF;
 }
 
+.sort-modal-menu-container {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  z-index: 1;
 
+  background-color: var(--primary-color-variation-dark);
+
+  font-family: var(--general-text);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.sort-modal-menu span {
+  width: 100%;
+  border-bottom: solid 0.2rem white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort-modal-menu .exit-sort-modal-menu-button {
+  border: none;
+  background-color: transparent;
+
+  font-size: 2.5rem;
+  color: white;
+}
+
+.sort-modal-menu li button {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+
+  font-family: var(--general-text);
+  font-size: 2.2rem;
+  color: white;
+}
+
+.sort-modal-menu button:hover {
+  color: var(--primary-color-variation);
+}
+
+.sort-modal-menu button:active {
+  color: white;
+}
+
+/* End Sort Modal Menu Styles */
+
+/* Star Filter Modal Menu Styles */
+.filter-modal-menu {
+  width: 90vw;
+  height: 90vh;
+  border-radius: 4rem;
+  padding: 2rem 3rem;
+  margin: 3rem 2rem;
+
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  z-index: 1;
+
+  background-color: rgba(72, 72, 80, 0.95);
+
+  font-family: var(--general-text);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+
+}
+
+.filter-modal-menu span {
+  width: 100%;
+  border-bottom: solid 0.2rem white;
+  margin-bottom: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-modal-menu .exit-filter-modal-menu-button {
+  border: none;
+  background-color: transparent;
+
+  font-size: 2.5rem;
+  color: white;
+}
+
+.exit-filter-modal-menu-button:hover {
+  color: var(--primary-color-variation);
+}
+
+.filter-modal-menu select {
+  width: 100%;
+  border: solid 0.2rem white;
+  border-radius: 3rem;
+  padding: 1rem 0.5rem;
+  margin-bottom: 1.5rem;
+
+  background-color: transparent;
+  outline: none;
+
+  font-family: var(--general-text);
+  font-size: 2rem;
+  color: #FFFFFF;
+}
+/* End Filter Modal Menu Styles */
 /* End Header Styles */
 
 /* Start Characters List Section Styles */

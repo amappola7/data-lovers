@@ -2,14 +2,15 @@
   --general-text: 'IBM Plex Sans Thai', sans-serif;
   --titles-text: 'Bubblegum Sans', cursive;
   --welcome-text: 'Henny Penny', cursive;
-
   --background-color: #151314;
   --background-color-variation: #623914;
   --enfasis-color: #FFC857;
   --enfasis-color-variation: #FFE9D4;
-  --primary-color: #4d5466;
+  --primary-color: #4D5466;
   --primary-color-variation: #CDCDCD;
+  --primary-color-variation-dark: #484850;
   --transparency-color: rgba(205, 205, 205, 0.25);
+  --transparency-color-dark: rgba(21, 19, 20, 0.4);
 }
 
 /* Start Welcome Page Styles*/
@@ -40,6 +41,92 @@
   height: 8rem;
 }
 
+/* Star Sort Modal Menu Styles */
+.sort-modal-menu {
+  width: 30rem;
+  height: 18rem;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: -20rem;
+  right: 15rem;
+  z-index: 1;
+
+  background-color: var(--primary-color);
+
+  color: #FFFFFF;
+}
+
+.sort-modal-menu-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background-color: transparent;
+
+  font-size: 2rem;
+}
+
+.sort-modal-menu span {
+  margin-bottom: 1rem;
+  border-bottom: 0.1rem solid #FFFFFF;
+}
+
+.sort-modal-menu .exit-sort-modal-menu-button,
+.filter-modal-menu .exit-filter-modal-menu-button {
+  font-size: 1.8rem;
+}
+
+.sort-modal-menu .sort-option {
+  font-size: 2rem;
+}
+
+/* End Sort Modal Menu Styles */
+
+/* Start Filter Modal Menu Styles */
+.filter-modal-menu {
+  width: 30rem;
+  height: 22rem;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: -20rem;
+  right: 15rem;
+  z-index: 1;
+
+  background-color: var(--primary-color);
+
+  color: #FFFFFF;
+}
+
+.filter-modal-menu span {
+  border-bottom: 0.1rem solid #FFFFFF;
+  padding: 0;
+  margin-bottom: 1rem;
+
+  font-size: 2rem;
+}
+
+.filter-modal-menu select {
+  border: none;
+  padding: 0 2rem 0 0;
+  margin: 0;
+
+  font-size: 2rem;
+}
+
+
+/* End Filter Modal Menu Styles */
 /* End Header Styles*/
 
 /* Start Characters List Section Styles */
@@ -118,3 +205,6 @@
   font-size: 3rem;
 }
 /* End Characters Card Section Styles */
+
+
+
