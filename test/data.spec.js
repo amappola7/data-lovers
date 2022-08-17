@@ -1,12 +1,11 @@
-import data from '../src/data/harrypotter/data.js'
 import ProcessData from '../src/data.js'
+const processData = new ProcessData
 
-//Get class instance ProcessData, whose parameter is the data
-let processData = new ProcessData();
-let functionProcessData =  processData.getOrderedNamesList(data);
+const dataUnordered = {characters:[{"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5]},{"id":2, "name":"Vilma Picapiedras", "books_featured_in": [1,2,5,7]},{"id":3, "name":"Betty Marmol", "books_featured_in": [2,3,5,6,7]},{"id":4, "name":"Pablo Marmol", "books_featured_in": [1,2,3,4,5,6,7]},{"id":5, "name":"Sr. Rajuela", "books_featured_in": [1,2,3,4,5,6,7]}]}
+const dataOrdered = {characters:[{"id":4, "name":"Pablo Marmol", "books_featured_in": [1,2,3,4,5,6,7]},{"id":5, "name":"Sr. Rajuela", "books_featured_in": [1,2,3,4,5,6,7]},{"id":3, "name":"Betty Marmol", "books_featured_in": [2,3,5,6,7]},{"id":2, "name":"Vilma Picapiedras", "books_featured_in": [1,2,5,7]},{"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5]}]}
 
-//Start test in method getOrderedNamesList()
- describe('ProcessData', ()=>{
+
+describe('ProcessData', ()=>{
   it('is a object',()=>{
     expect(typeof ProcessData).toEqual('function');
   });
@@ -16,38 +15,16 @@ let functionProcessData =  processData.getOrderedNamesList(data);
   });
 });
 
-describe('functionProcessData', ()=>{
+describe('getOrderedNamesList', ()=>{
   it('is a function',()=>{
-    expect(typeof functionProcessData).toEqual('object');
+    expect(typeof processData.getOrderedNamesList(dataUnordered)).toEqual('object');
   });
 
-  it('should receive an object as an argument',()=>{
-    expect(typeof data).toEqual('object');
+  it('should order the characters according to the number of books where they appear',()=>{
+    expect(processData.getOrderedNamesList(dataUnordered)).toEqual(dataOrdered.characters);
   });
 
-  it('the first 20 characters should appear in all 7 books',()=>{
-    expect(functionProcessData.map((elem)=>{
-        return elem.books_featured_in
-    })).toEqual(expect.arrayContaining(functionProcessData.slice(0,20).map((e)=>{
-        return e.books_featured_in
-    })))
-  });
-
-  it('Harry Potter should be in the top 20 items in the array',()=>{
-    expect(functionProcessData.slice(0,20)).
-    toEqual(expect.arrayContaining(functionProcessData.filter((e)=>{
-      if(e.name === "Harry Potter" ){
-          return e
-      }
-    })));
-  });
-
-  it('Peregrine Derrick should not be in the top 20 items in the array',()=>{
-    expect(functionProcessData.slice(0,20)).
-    toEqual(expect.not.arrayContaining(functionProcessData.filter((e)=>{
-      if(e.name === 'Peregrine Derrick'){
-        return e
-    }
-    })));
+  it('The argument should not be a string',()=>{
+    expect(typeof dataUnordered).toEqual('object')
   });
 })

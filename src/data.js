@@ -6,8 +6,7 @@ class ProcessData {
       this.characterPosition = 0;
       
     }
-  
-    // Creating the list of characters ordered by the number of books they appear in
+      // Creating the list of characters ordered by the number of books they appear in
     getOrderedNamesList(data) {
       let importanceLevel1 = [];
       let importanceLevel2 = [];
@@ -43,8 +42,7 @@ class ProcessData {
         
            return allArrayCharacters
    }
-  
-    // Creating array with characters to pagination to the next page
+      // Creating array with characters to pagination to the next page
     goToNextPage(data) {
       const allCharacters = this.getOrderedNamesList(data);
       let pageCharacters = [];
@@ -56,8 +54,7 @@ class ProcessData {
       this.characterPosition = maxCharactersPerPage + 1;
       return pageCharacters;
     }
-  
-    // Creating array with characters to pagination to the previous page
+      // Creating array with characters to pagination to the previous page
     goToPreviousPage(data) {
       const allCharacters = this.getOrderedNamesList(data);
       let pageCharacters = [];
