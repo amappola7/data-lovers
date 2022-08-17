@@ -118,3 +118,26 @@
   font-size: 3rem;
 }
 /* End Characters Card Section Styles */
+
+
+
+/* Sort Modal Menu */
+/* .sort-modal-menu {
+  width: 20rem;
+  height: 12rem;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: -13rem;
+  right: 15rem;
+  z-index: 1;
+
+  background-color: var(--primary-color);
+
+  color: #FFFFFF;
+} */
