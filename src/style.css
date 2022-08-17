@@ -69,7 +69,7 @@ body {
 .title-welcome-page{
   font-family: var(--welcome-text);
   color: #FFFFFF;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: lighter;
 }
 

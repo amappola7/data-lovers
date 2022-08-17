@@ -30,7 +30,7 @@ btnStartWelcomePage.addEventListener("click", () => {
 });
 
 // Create ordered characters list
-const HarryPotterData = new ProcessData(data);
+const HarryPotterData = new ProcessData(rawData.allData);
 
 // Display main page and characters list
 const creatingHTMLElements = new CreateContainersForCharactersSection();
