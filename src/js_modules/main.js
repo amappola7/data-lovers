@@ -1,9 +1,10 @@
 // main.mjs - DOM Events
-
 import data from '../data/harrypotter/data.js';
 import ProcessData from '../data.js';
 import CreateContainersForCharactersSection from './displayList.mjs';
 import DetailsCharacters from './detailsCharacters.mjs'
+//prueba
+import RawData from './rawData.js'
 
 // DOM Selectors
 const welcomePage = document.getElementById("content-welcome-page-id");
@@ -17,7 +18,8 @@ const sortBtn = document.getElementById("sort-button-id");
 const sortModalMenu = document.getElementById("sort-modal-menu-id");
 
 // Characters - Dataset
-const characterData = data.characters
+let rawData = new RawData(data)
+rawData.getBooksListById([1,2,3,4,5,6,7])
 
 //Event welcome button
 btnStartWelcomePage.addEventListener("click", () => {
@@ -32,16 +34,16 @@ const HarryPotterData = new ProcessData(data);
 
 // Display main page and characters list
 const creatingHTMLElements = new CreateContainersForCharactersSection();
-creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(data), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 
 // Create events to pagination
 // Next Page
 btnNextPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(data), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 })
 // Previous Page
 btnPreviousPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(data), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 })
 
 // Create characters card
@@ -51,7 +53,7 @@ const eventContainers = creatingHTMLElements.containerCharacters;
 // Open characters card
 eventContainers.addEventListener('click', (event) => {
     if (event.target.nodeName === "FIGURE" || event.target.nodeName === "FIGCAPTION" || event.target.nodeName === "IMG") {
-        characterData.forEach((elem) => {
+        rawData.dataCharacters.forEach((elem) => {
             if(elem.id === parseInt(event.target.dataset.id)){
                 detailsDataCharacters.createCharacterContainer(elem, "https://imagizer.imageshack.com/img923/332/wM4EDt.png",'card')
                 creatingHTMLElements.hiddenDisplayList()
@@ -78,4 +80,7 @@ btnCloseDetailsDataCharacters.addEventListener('click', () => {
 sortBtn.addEventListener("click", () => {
     sortModalMenu.style.display = "flex";
 })
+
+
+
 

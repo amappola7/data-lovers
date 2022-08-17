@@ -20,7 +20,7 @@
 html {
   font-size: 62.5%;
 }
-
+@media (min-width: 320px){
 body {
   background-image: url("https://imagizer.imageshack.com/img923/1154/sNHY2f.jpg");
   background-repeat: no-repeat;
@@ -32,6 +32,7 @@ body {
   flex-direction: column;
   background-color: black;
 }
+
 
 /* Start Welcome Page Styles*/
 .content-welcome-page{
@@ -355,4 +356,4 @@ li >.btn-pagination {
 }
 /* End Footer Styles*/
 
-
+}

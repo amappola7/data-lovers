@@ -50,18 +50,13 @@ class CreateContainersForCharactersSection {
       const elementsCreated = this.createCharacterContainer(element, srcImage, section);
       this.arrayToAppendListCharacters.push(elementsCreated)
     })
-
-
   //The dynamic generation of the elements is separated from the aggregation of these to the DOM, to improve page performance
     this.containerCharacters.append(...this.arrayToAppendListCharacters)
-
   }
-
   // Function to hide the list characters section
   hiddenDisplayList(){
     this.containerCharacters.style.display = "none";
   }
-
   // Function to show the list characters section
   displayListCharacters(){
     this.containerCharacters.style.display = "";
