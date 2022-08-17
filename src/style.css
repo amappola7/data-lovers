@@ -258,7 +258,7 @@ li {
   position: absolute;
   z-index: 1;
 
-  background-color: rgba(107, 104, 106, 0.9);
+  background-color: rgba(72, 72, 80, 0.95);
 
   font-family: var(--general-text);
   font-size: 2.8rem;

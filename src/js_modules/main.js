@@ -107,7 +107,7 @@ exitFilterBtn.addEventListener("click", () => {
     sortBtn.style.display = "";
     filterBtn.style.display = "";
     containerCharactersList.style.display = "";
-    footer.style.display = "";
+    footer.style.display = "block";
 })
 
 
