@@ -41,8 +41,9 @@ class ProcessData {
        let allArrayCharacters =  importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).concat(importanceLevel4).concat(importanceLevel5);
         
            return allArrayCharacters
-   }
-      // Creating array with characters to pagination to the next page
+    }
+
+    // Creating array with characters to pagination to the next page
     goToNextPage(data) {
       const allCharacters = this.getOrderedNamesList(data);
       let pageCharacters = [];
@@ -50,7 +51,7 @@ class ProcessData {
       for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
         pageCharacters.push(allCharacters[i]);
       }
-  
+
       this.characterPosition = maxCharactersPerPage + 1;
       return pageCharacters;
     }
@@ -60,7 +61,7 @@ class ProcessData {
       let pageCharacters = [];
       this.characterPosition -= 16;
       let maxCharactersPerPage = this.characterPosition + 7;
-  
+
       if (this.characterPosition >= 0) {
         for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
           pageCharacters.push(allCharacters[i]);
@@ -72,12 +73,10 @@ class ProcessData {
           pageCharacters.push(allCharacters[i]);
         }
       }
-  
+
       this.characterPosition += 8;
       return pageCharacters;
     }
   }
-  
-  export default ProcessData
 
-  
+  export default ProcessData
