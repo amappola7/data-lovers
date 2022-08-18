@@ -20,36 +20,22 @@ const sortModalMenu = document.getElementById("sort-modal-menu-id");
 // Characters - Dataset
 let rawData = new RawData(data)
 rawData.getBooksListById([1,2,3,4,5,6,7])
-
+// Create ordered characters list
+const HarryPotterData = new ProcessData(rawData.allData);
+const creatingHTMLElements = new CreateContainersForCharactersSection();
 //Event welcome button
+
 btnStartWelcomePage.addEventListener("click", () => {
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
     welcomePage.style.display = "none";
     header.style.display = "block";
     mainPage.style.display = "flex";
     footer.style.display = "flex";
 });
 
-// Create ordered characters list
-const HarryPotterData = new ProcessData(rawData.allData);
-
-// Display main page and characters list
-const creatingHTMLElements = new CreateContainersForCharactersSection();
-creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-
-// Create events to pagination
-// Next Page
-btnNextPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-})
-// Previous Page
-btnPreviousPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-})
-
-// Create characters card
 const detailsDataCharacters = new DetailsCharacters();
-const eventContainers = creatingHTMLElements.containerCharacters;
-
+// const eventContainers = creatingHTMLElements.containerCharacters
+const eventContainers = document.getElementById('container-characters-list-id')
 // Open characters card
 eventContainers.addEventListener('click', (event) => {
     if (event.target.nodeName === "FIGURE" || event.target.nodeName === "FIGCAPTION" || event.target.nodeName === "IMG") {
@@ -74,6 +60,23 @@ btnCloseDetailsDataCharacters.addEventListener('click', () => {
     footer.style.display = "flex"
     creatingHTMLElements.displayListCharacters()
 })
+
+
+// Display main page and characters list
+
+
+
+// Create events to pagination
+// Next Page
+btnNextPage.addEventListener("click", () => {
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+})
+// Previous Page
+btnPreviousPage.addEventListener("click", () => {
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+})
+
+// Create characters card
 
 
 // Open modal menu in sort button
