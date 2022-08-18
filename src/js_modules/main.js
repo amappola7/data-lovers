@@ -1,5 +1,5 @@
 // main.mjs - DOM Events
-import data from '../data/harrypotter/data.js';
+import dataSet from '../data/harrypotter/data.js';
 import ProcessData from '../data.js';
 import CreateContainersForCharactersSection from './displayList.mjs';
 import DetailsCharacters from './detailsCharacters.mjs'
@@ -7,7 +7,7 @@ import DetailsCharacters from './detailsCharacters.mjs'
 import RawData from './rawData.js'
 
 // Data Cruda
-const data = dataCruda;
+const data = dataSet;
 
 // DOM Selectors
 const welcomePage = document.getElementById("content-welcome-page-id");
@@ -23,7 +23,7 @@ const exitSortBtn = document.getElementById("exit-sort-modal-menu-id");
 const sortModalMenu = document.getElementById("sort-modal-menu-id");
 const filterBtn = document.getElementById("filter-button-id");
 const exitFilterBtn = document.getElementById("exit-filter-modal-menu-id");
-const filterModalMenu = document.getElementById("filter-modal-menu-id")
+const filterModalMenu = document.getElementById("filter-modal-menu-id");
 
 // Characters - Dataset
 let rawData = new RawData(data)
@@ -93,23 +93,14 @@ exitSortBtn.addEventListener("click", () => {
     sortModalMenu.style.display = "none";
 })
 
-
 // Open modal menu in filter button
 filterBtn.addEventListener("click", () => {
     filterModalMenu.style.display = "flex";
-    sortBtn.style.display = "none";
-    filterBtn.style.display = "none";
-    containerCharactersList.style.display = "none";
-    footer.style.display = "none";
 })
 
 // Close modal menu in filter button
 exitFilterBtn.addEventListener("click", () => {
     filterModalMenu.style.display = "none";
-    sortBtn.style.display = "";
-    filterBtn.style.display = "";
-    containerCharactersList.style.display = "";
-    footer.style.display = "block";
 })
 
-
+// Events to sort data

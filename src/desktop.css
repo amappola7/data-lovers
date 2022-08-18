@@ -57,9 +57,9 @@
   right: 15rem;
   z-index: 1;
 
-  background-color: var(--primary-color);
+  background-color: #FFFFFF;
 
-  color: #FFFFFF;
+  color: var(--primary-color);
 }
 
 .sort-modal-menu-container {
@@ -70,20 +70,28 @@
   background-color: transparent;
 
   font-size: 2rem;
+  color: var(--primary-color);
 }
 
 .sort-modal-menu span {
   margin-bottom: 1rem;
-  border-bottom: 0.1rem solid #FFFFFF;
+  border-bottom: 0.1rem solid var(--primary-color);
 }
 
 .sort-modal-menu .exit-sort-modal-menu-button,
 .filter-modal-menu .exit-filter-modal-menu-button {
   font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.sort-modal-menu .exit-sort-modal-menu-button:hover,
+.filter-modal-menu .exit-filter-modal-menu-button:hover {
+  color: var(--primary-color-variation);
 }
 
 .sort-modal-menu .sort-option {
   font-size: 2rem;
+  color: var(--primary-color);
 }
 
 /* End Sort Modal Menu Styles */
@@ -100,17 +108,17 @@
   flex-direction: column;
   justify-content: flex-start;
   position: absolute;
-  bottom: -20rem;
-  right: 15rem;
+  bottom: -27rem;
+  right: 1rem;
   z-index: 1;
 
-  background-color: var(--primary-color);
+  background-color: white;
 
-  color: #FFFFFF;
+  color: var(--primary-color);
 }
 
 .filter-modal-menu span {
-  border-bottom: 0.1rem solid #FFFFFF;
+  border-bottom: 0.1rem solid var(--primary-color);
   padding: 0;
   margin-bottom: 1rem;
 
@@ -123,6 +131,7 @@
   margin: 0;
 
   font-size: 2rem;
+  color: var(--primary-color);
 }
 
 
