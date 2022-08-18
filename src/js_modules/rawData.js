@@ -6,7 +6,7 @@ class RawData{
     }
     //This method return an array with all the books
     getBooksList(){
-       let books = []
+        let books = []
         this.dataBooks.forEach((elem) => {
             books.push(elem.title)
         })
@@ -15,13 +15,13 @@ class RawData{
     }
     getBooksListById(bookIdArray){
         let booksName = []
-         this.dataBooks.forEach((elem) => {
+        this.dataBooks.forEach((elem) => {
             if(bookIdArray.includes(elem.id))
             booksName.push(elem.title)
-         })
-         console.log('Lista de libros por id',booksName)
-         return booksName
-     }
+        })
+        console.log('Lista de libros por id',booksName)
+        return booksName
+    }
     getSpeciesList(){
         let species = []
         this.dataCharacters.forEach((elem) => {

@@ -27,7 +27,8 @@ const filterModalMenu = document.getElementById("filter-modal-menu-id");
 
 // Characters - Dataset
 let rawData = new RawData(data)
-rawData.getBooksListById([1,2,3,4,5,6,7])
+// rawData.getBooksListById([1,2,3,4,5,6,7])
+// rawData.getSpeciesList();
 
 //Event welcome button
 btnStartWelcomePage.addEventListener("click", () => {

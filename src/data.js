@@ -80,77 +80,62 @@ class ProcessData {
       return pageCharacters;
     }
 
-    // Creating array with characters ordered by houses
-    sortCharactersByHouses (data) {
-      let charactersOrderedByHouses = data.characters.sort((a, b) => {
-        if (a.house > b.house) {
+    // Creating array with ordered characters
+    /**
+     * @param {array} charactersData Array with characters
+     * @param {string} category Keyword to sort the array of characters. Use name as condition to sort alphabetically
+     * @param {number} order 1 for ascending order and any other number for descending order (preferably use -1)
+     * @returns Array with characters ordered by certain category
+     */
+
+    sortCharactersBy(charactersData, category, order) {
+      // Changing null values for "Unknown"
+      let newCharactersData = charactersData.map(character => {
+        character[category] === null ? character[category] = "Unknown" : character[category];
+        return character;
+      });
+
+      // Ordering characters
+      let orderedCharactersList = newCharactersData.sort((a, b) => {
+        if (a[category] > b[category]) {
           return 1;
         }
-        if (a.house < b.house) {
+        if (a[category] < b[category]) {
           return -1;
         }
         return 0;
       });
 
-      return charactersOrderedByHouses;
-      }
-
-    // Creating array with characters alphabetically arranged
-    sortCharactersByAlphabet (data, order) {
-      let charactersOrderedByAlphabet = data.characters.sort((a, b) => {
-        if (a.name.toLowerCase() > b.name.toLowerCase()) {
-          return 1;
-        }
-        if (a.name.toLowerCase() < b.name.toLowerCase()) {
-          return -1;
-        }
-        return 0;
-      });
-
+      // Return ordered characters list ascending or descending
       if (order === 1) {
-        return charactersOrderedByAlphabet;
+        return orderedCharactersList;
       } else {
-        let reverse = [...charactersOrderedByAlphabet];
+        let reverse = [...orderedCharactersList];
         return reverse.reverse();
       }
     }
 
-    // EN PROGRESO
-    // Creating array with characters filtered by books
-    filterCharactersByBooks (data, bookNumber) {
-      let charactersFilteredByBooks = [];
+    // Creating array with characters filtered
+    /**
+     * @param {array} charactersData Array with characters
+     * @param {string} category Category to filter the array of characters (house, books_featured_in, species...)
+     * @param {string} condition Keyword with the specific condition to filter the array of characters (Gryffindor, 2, Human...)
+     * @returns {array} Array with characters filtered by certain condition
+     */
 
-      data.characters.forEach(character => {
+    filterCharactersBy(charactersData, category, condition) {
+      let filteredCharactersList = charactersData.filter(character => {
+        if (category === "books_featured_in") {
+          condition = parseInt(condition);
+          if (character[category].includes(condition)) {
+            return true;
+          }
+        } else if (character[category] === condition) {
+          return true;
+        }
       });
 
-      return charactersFilteredByBooks;
-    }
-
-    // Creating array with characters filtered by houses
-    filterCharactersByHouses(data, house) {
-      let charactersFilteredByHouses = [];
-
-      data.characters.forEach(character => {
-        if (character.house === house) {
-          charactersFilteredByHouses.push(character);
-        }
-
-      })
-
-      return charactersFilteredByHouses;
-    }
-
-    // Creating array with characters filtered by species
-    filterCharactersBySpecies (data, species) {
-      let charactersFilteredBySpecies = [];
-
-      data.characters.forEach(character => {
-        if (character.species === species) {
-          charactersFilteredBySpecies.push(character);
-        }
-      })
-
-      return charactersFilteredBySpecies;
+      return filteredCharactersList;
     }
   }
 
