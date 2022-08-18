@@ -105,3 +105,14 @@ exitFilterBtn.addEventListener("click", () => {
 })
 
 // Events to sort data
+sortModalMenu.addEventListener("click", (event) => {
+    if (event.target.textContent === "Houses") {
+        creatingHTMLElements.addCharacterList(HarryPotterData.sortCharactersBy(rawData.dataCharacters,"house", 1),"https://imagizer.imageshack.com/img923/332/wM4EDt.png","list")
+    } else if (event.target.textContent === "A-Z") {
+        creatingHTMLElements.addCharacterList(HarryPotterData.sortCharactersBy(rawData.dataCharacters,"name", 1),"https://imagizer.imageshack.com/img923/332/wM4EDt.png","list")
+    } else if (event.target.textContent === "Z-A") {
+        creatingHTMLElements.addCharacterList(HarryPotterData.sortCharactersBy(rawData.dataCharacters,"name", -1),"https://imagizer.imageshack.com/img923/332/wM4EDt.png","list")
+    }
+
+    sortModalMenu.style.display = "none";
+})
