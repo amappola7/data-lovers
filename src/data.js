@@ -44,8 +44,12 @@ class ProcessData {
     }
 
     // Creating array with characters to pagination to the next page
+    /**
+     * @param {array} data Array with characters. It can be a function that returns an array
+     * @returns {array} Returns an array with characters
+     */
     goToNextPage(data) {
-      const allCharacters = this.getOrderedNamesList(data);
+      const allCharacters = data;
       let pageCharacters = [];
       let maxCharactersPerPage = this.characterPosition + 7;
       for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
@@ -58,7 +62,7 @@ class ProcessData {
 
     // Creating array with characters to pagination to the previous page
     goToPreviousPage(data) {
-      const allCharacters = this.getOrderedNamesList(data);
+      const allCharacters = data;
 
       let pageCharacters = [];
       this.characterPosition -= 16;
