@@ -303,6 +303,13 @@ li {
   font-size: 2rem;
   color: #FFFFFF;
 }
+
+.filter-modal-menu option {
+  border: none;
+  background-color: var(--primary-color);
+  outline: none;
+  color: #FFFFFF;
+}
 /* End Filter Modal Menu Styles */
 /* End Header Styles */
 

@@ -48,6 +48,7 @@ class ProcessData {
      * @param {array} data Array with characters. It can be a function that returns an array
      * @returns {array} Returns an array with characters
      */
+
     goToNextPage(data) {
       const allCharacters = data;
       let pageCharacters = [];
@@ -61,6 +62,11 @@ class ProcessData {
     }
 
     // Creating array with characters to pagination to the previous page
+    /**
+     * @param {array} data Array with characters. It can be a function that returns an array
+     * @returns {array} Returns an array with characters
+     */
+
     goToPreviousPage(data) {
       const allCharacters = data;
 
