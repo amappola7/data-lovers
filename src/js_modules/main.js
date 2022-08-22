@@ -29,6 +29,7 @@ const filterModalMenu = document.getElementById("filter-modal-menu-id");
 let rawData = new RawData(data)
 
 
+
 // Create ordered characters list
 const HarryPotterData = new ProcessData(rawData.allData);
 const creatingHTMLElements = new CreateContainersForCharactersSection();
@@ -48,6 +49,11 @@ btnStartWelcomePage.addEventListener("click", () => {
 
 
 // Display main page and characters list
+
+creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.getOrderedNamesList(rawData.allData)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+creatingHTMLElements.createNewOptions(rawData.getOnlySpeciesList(rawData.getSpeciesList()), "species");
+creatingHTMLElements.createNewOptions(rawData.getBooksList(), "books" );
+creatingHTMLElements.createNewOptions(rawData.getOnlyHousesList(rawData.getHousesList()), "houses");
 
 
 // Create events to pagination
@@ -161,18 +167,28 @@ sortModalMenu.addEventListener("click", (event) => {
     sortModalMenu.style.display = "none";
 })
 
+// Events to filter data
+filterModalMenu.addEventListener("change", (event) => {
+        if (event.target.name === "Houses") {
+            let value = event.target.value;
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.filterCharactersBy(rawData.dataCharacters,"house", value)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+        } else if (event.target.name === "Books") {
+            let value = event.target.value;
+            let condition = "";
 
-var nombres = ['Ana','Berta','Carlos', 'David']
+            rawData.dataBooks.forEach(book => {
+                if (book.name === value) {
+                    condition += book.id;
+                }
+            })
 
-var ordenNombre = [...nombres].sort((a,b)=>{
-    console.log('*A*',a)
-    console.log('B',b)
-    if(a > b){
-        return -1
-    }else if(b < a){
-        return 1
+            console.log("Hola", condition);
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+        } else if (event.target.name === "Species") {
+            let value = event.target.value;
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.filterCharactersBy(rawData.dataCharacters,"species", value)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+        }
+
+    filterModalMenu.style.display = "none";
     }
-})
-
-console.log('Array original',nombres)
-console.log('Array ordenado',ordenNombre)
+)

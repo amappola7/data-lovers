@@ -146,7 +146,8 @@ class ProcessData {
 
       return filteredCharactersList;
     }
+
   }
 
-export default ProcessData
+export default ProcessData;
 

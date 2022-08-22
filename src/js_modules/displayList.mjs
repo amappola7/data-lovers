@@ -53,13 +53,27 @@ class CreateContainersForCharactersSection {
   //The dynamic generation of the elements is separated from the aggregation of these to the DOM, to improve page performance
     this.containerCharacters.append(...this.arrayToAppendListCharacters)
   }
+
   // Function to hide the list characters section
   hiddenDisplayList(){
     this.containerCharacters.style.display = "none";
   }
+
   // Function to show the list characters section
   displayListCharacters(){
     this.containerCharacters.style.display = "";
+  }
+
+  // Method to create the options of the filter by species menu
+  createNewOptions(data, select) {
+    const selectMenu = document.getElementById(`select-${select}`);
+
+    data.forEach(option => {
+      let newOption = document.createElement("option");
+      newOption.setAttribute("value", `${option}`);
+      newOption.textContent = `${option}`;
+      selectMenu.insertAdjacentElement("beforeend", newOption);
+    })
   }
 }
 
