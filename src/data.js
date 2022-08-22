@@ -2,7 +2,6 @@ class ProcessData {
     constructor () {
       // Importing characters and books from the dataset file
       this.characters = [];
-      // this.books = data.books;
       this.characterPosition = 0;
     }
 
@@ -102,9 +101,9 @@ class ProcessData {
       // Changing null values for "Unknown"
       let newCharactersData = charactersData.map(character => {
         character[category] === null ? character[category] = "Unknown" : character[category];
-        return character;
+             return character;
       });
-
+      console.log('con map',newCharactersData)
       // Ordering characters
       let orderedCharactersList = newCharactersData.sort((a, b) => {
         if (a[category] > b[category]) {
@@ -115,7 +114,7 @@ class ProcessData {
         }
         return 0;
       });
-
+      console.log('con sort',orderedCharactersList)
       // Return ordered characters list ascending or descending
       if (order === 1) {
         return orderedCharactersList;

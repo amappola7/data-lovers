@@ -36,7 +36,6 @@ const creatingHTMLElements = new CreateContainersForCharactersSection();
 //Event welcome button
 
 btnStartWelcomePage.addEventListener("click", () => {
-    console.log(rawData.allData)
     creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.dataCharacters), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
     welcomePage.style.display = "none";
     header.style.display = "block";
@@ -54,11 +53,11 @@ btnStartWelcomePage.addEventListener("click", () => {
 // Create events to pagination
 // Next Page
 btnNextPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.getOrderedNamesList(rawData.dataCharacters)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.getOrderedNamesList(rawData.allData)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 })
 // Previous Page
 btnPreviousPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(HarryPotterData.getOrderedNamesList(rawData.dataCharacters)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(HarryPotterData.getOrderedNamesList(rawData.allData)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 })
 
 // Create characters card
@@ -100,11 +99,11 @@ btnCloseDetailsDataCharacters.addEventListener('click', () => {
 // Create events to pagination
 // Next Page
 btnNextPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.dataCharacters), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 })
 // Previous Page
 btnPreviousPage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(rawData.dataCharacters), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 })
 
 // Create characters card
@@ -161,3 +160,19 @@ sortModalMenu.addEventListener("click", (event) => {
 
     sortModalMenu.style.display = "none";
 })
+
+
+var nombres = ['Ana','Berta','Carlos', 'David']
+
+var ordenNombre = [...nombres].sort((a,b)=>{
+    console.log('*A*',a)
+    console.log('B',b)
+    if(a > b){
+        return -1
+    }else if(b < a){
+        return 1
+    }
+})
+
+console.log('Array original',nombres)
+console.log('Array ordenado',ordenNombre)

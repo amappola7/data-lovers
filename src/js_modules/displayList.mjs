@@ -8,7 +8,6 @@ class CreateContainersForCharactersSection {
   }
 
   createCharacterContainer (data, srcImage, section) {
-    console.log(data)
     this.containerCharacters = document.getElementById(`container-characters-${section}-id`);
 
     // Filling containers with data information
