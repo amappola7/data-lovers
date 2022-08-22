@@ -100,12 +100,13 @@ class ProcessData {
 
     sortCharactersBy(charactersData, category, order) {
       // Changing null values for "Unknown"
+      
       let newCharactersData = charactersData.map(character => {
         character[category] === null ? character[category] = "Unknown" : character[category];
         return character;
       });
 
-      // Ordering characters
+      //Ordering characters
       let orderedCharactersList = newCharactersData.sort((a, b) => {
         if (a[category] > b[category]) {
           return 1;
@@ -115,14 +116,16 @@ class ProcessData {
         }
         return 0;
       });
-
-      // Return ordered characters list ascending or descending
+      
+     //Return ordered characters list ascending or descending
       if (order === 1) {
-        return orderedCharactersList;
+         return orderedCharactersList;
       } else {
         let reverse = [...orderedCharactersList];
         return reverse.reverse();
       }
+
+      
     }
 
     // Creating array with characters filtered
@@ -138,13 +141,16 @@ class ProcessData {
         if (category === "books_featured_in") {
           condition = parseInt(condition);
           if (character[category].includes(condition)) {
-            return true;
+            
+             return true;
           }
         } else if (character[category] === condition) {
-          return true;
+          console.log('categoria',character[category])
+            console.log('condicion',condition)
+            return true;
         }
       });
-
+console.log(filteredCharactersList)
       return filteredCharactersList;
     }
 
