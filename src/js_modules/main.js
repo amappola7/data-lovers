@@ -38,6 +38,7 @@ btnStartWelcomePage.addEventListener("click", () => {
 
 // Create ordered characters list
 const HarryPotterData = new ProcessData(rawData.allData);
+console.log("Data: ", HarryPotterData.filterCharactersBy(rawData.dataCharacters, "house", "Hufflepuff (possibly)"));
 
 // Display main page and characters list
 const creatingHTMLElements = new CreateContainersForCharactersSection();
