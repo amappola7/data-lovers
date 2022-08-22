@@ -149,7 +149,7 @@ filterModalMenu.addEventListener("change", (event) => {
             let condition = "";
 
             rawData.dataBooks.forEach(book => {
-                if (book.name === value) {
+                if (book.title === value) {
                     condition += book.id;
                 }
             })
