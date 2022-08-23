@@ -55,7 +55,7 @@ class RawData{
         this.dataCharacters.forEach((elem) => {
             houses.push(elem.house === null ? 'Unknown': elem.house)
         })
-        // console.log('Lista de casas',houses)
+        // console.log('getHousesList',houses)
         return houses
     }
 
@@ -69,7 +69,7 @@ class RawData{
                 housesList.push(house);
             }
         })
-
+         //console.log('getOnlyHousesList',housesList)
         return housesList;
     }
 }

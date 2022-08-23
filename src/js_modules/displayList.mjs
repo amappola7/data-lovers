@@ -8,6 +8,7 @@ class CreateContainersForCharactersSection {
   }
 
   createCharacterContainer (data, srcImage, section) {
+    // console.log('Recibida en displayList',data)
     this.containerCharacters = document.getElementById(`container-characters-${section}-id`);
 
     // Filling containers with data information

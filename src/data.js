@@ -12,6 +12,9 @@ class ProcessData {
       let importanceLevel3 = [];
       let importanceLevel4 = [];
       let importanceLevel5 = [];
+      let importanceLevel6 = [];
+      let importanceLevel7 = [];
+      let importanceLevel8 = [];
 
       this.characters = data.characters
       this.characters.forEach(character => {
@@ -31,13 +34,21 @@ class ProcessData {
           case 4:
             importanceLevel4.push(characterName);
             break;
-          default:
+          case 3:
             importanceLevel5.push(characterName);
+            break;
+          case 2:
+            importanceLevel6.push(characterName);
+            break;
+          case 1:
+            importanceLevel8.push(characterName);
             break;
         }
       });
 
-      let allArrayCharacters =  importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).concat(importanceLevel4).concat(importanceLevel5);
+      let allArrayCharacters =  importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).
+                                concat(importanceLevel4).concat(importanceLevel5).concat(importanceLevel6).
+                                concat(importanceLevel7).concat(importanceLevel8);
       return allArrayCharacters
 
     }
@@ -52,10 +63,24 @@ class ProcessData {
       const allCharacters = data;
       let pageCharacters = [];
       let maxCharactersPerPage = this.characterPosition + 7;
-      for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
-        pageCharacters.push(allCharacters[i]);
-      }
 
+      if(maxCharactersPerPage<=allCharacters.length){
+        for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
+          pageCharacters.push(allCharacters[i]);
+        }
+      }else{ 
+         
+        if(allCharacters.length < 7){
+          for (let i = 0; i < allCharacters.length; i++) {
+            pageCharacters.push(allCharacters[i]);
+          }
+        }else {
+          for (let i = 0; i < 7; i++) {
+            pageCharacters.push(allCharacters[i]);
+          }
+        }  
+       
+      }
       this.characterPosition = maxCharactersPerPage + 1;
       return pageCharacters;
     }
@@ -103,10 +128,10 @@ class ProcessData {
       let newCharactersData = charactersData.map(character => {
         character[category] === null ? character[category] = "Unknown" : character[category];
              return character;
-      });
-     
+      }); 
+      console.log('Nuevo array despues de map',newCharactersData)
       //Ordering characters
-      let orderedCharactersList = newCharactersData.sort((a, b) => {
+      let orderedCharactersList = [...newCharactersData].sort((a, b) => {
         if (a[category] > b[category]) {
           return 1;
         }
@@ -115,7 +140,7 @@ class ProcessData {
         }
         return 0;
       });
-
+      console.log('Array ordenado por sort',orderedCharactersList)
     //Return ordered characters list ascending or descending
       if (order === 1) {
          return orderedCharactersList;
@@ -134,6 +159,7 @@ class ProcessData {
      */
 
     filterCharactersBy(charactersData, category, condition) {
+      
       let filteredCharactersList = charactersData.filter(character => {
         if (category === "books_featured_in") {
           condition = parseInt(condition);
@@ -141,7 +167,7 @@ class ProcessData {
             
              return true;
           }
-        } else if (character[category] === condition) {
+        }else if (character[category] === condition) {
            return true;
         }
       });
