@@ -83,7 +83,7 @@ describe('ProcessData', ()=>{
     expect(typeof ProcessData).toEqual('function');
   });
 
-  it('is an object',()=>{
+  it('The processData instance should be an object',()=>{
     expect(typeof processData).toEqual('object');
   });
 });
@@ -92,7 +92,9 @@ describe('getOrderedNamesList', () => {
   it('is a function',()=>{
     expect(typeof processData.getOrderedNamesList(dataUnordered)).toEqual('object');
   });
-
+  it('its parameters should be an object(array)',()=>{
+    expect(typeof processData.sortCharactersBy(dataUnordered.characters)).toEqual('object');
+  });
   it('should order the characters according to the number of books where they appear',()=>{
     expect(processData.getOrderedNamesList(dataUnordered)).toEqual(dataOrderedComputeStats.characters);
   });
