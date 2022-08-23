@@ -118,7 +118,6 @@ describe('sortCharactersBy', () => {
   it('should order the characters from Z to A and by house',()=>{
     expect(processData.sortCharactersBy(dataUnordered.characters,"house", -1)).toEqual(dataOrderedSortData_ZA_House.characters);
   });
-  
 })
 
 
