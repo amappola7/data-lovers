@@ -22,8 +22,9 @@
 html {
   font-size: 62.5%;
 }
+
 @media (min-width: 320px){
-body {
+.body {
   background-image: url("https://imagizer.imageshack.com/img923/1154/sNHY2f.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -34,8 +35,9 @@ body {
   flex-direction: column;
   background-color: black;
 }
-
-
+.body-404{
+  background-image: url("https://kapei.pe/wp-content/uploads/2021/01/error-404.jpg");
+}
 /* Start Welcome Page Styles*/
 .content-welcome-page{
   width: 100%;
