@@ -33,7 +33,7 @@ const HarryPotterData = new ProcessData(rawData.allData);
 const creatingHTMLElements = new CreateContainersForCharactersSection();
 
 // Display main page and characters list
-creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.getOrderedNamesList(rawData.allData)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+// creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.getOrderedNamesList(rawData.allData)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
 creatingHTMLElements.createNewOptions(rawData.getOnlySpeciesList(rawData.getSpeciesList()), "species");
 creatingHTMLElements.createNewOptions(rawData.getBooksList(), "books" );
 creatingHTMLElements.createNewOptions(rawData.getOnlyHousesList(rawData.getHousesList()), "houses");
