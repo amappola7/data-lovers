@@ -16,10 +16,10 @@ class ProcessData {
       let importanceLevel5 = [];
       let importanceLevel6 = [];
       let importanceLevel7 = [];
-      
+
 
       this.characters = data.characters
-      
+
       this.characters.forEach(character => {
         let characterName = character;
         let characterBooks = character.books_featured_in;
@@ -70,7 +70,7 @@ class ProcessData {
       for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
         pageCharacters.push(allCharacters[i]);
       }
-  
+
       this.characterPosition = maxCharactersPerPage + 1;
       return pageCharacters;
     }
@@ -114,12 +114,12 @@ class ProcessData {
 
     sortCharactersBy(charactersData, category, order) {
       // Changing null values for "Unknown"
-      
+
       let newCharactersData = charactersData.map(character => {
         character[category] === null ? character[category] = "Unknown" : character[category];
-             return character;
-      }); 
-      
+          return character;
+      });
+
       //Ordering characters
       let orderedCharactersList = [...newCharactersData].sort((a, b) => {
         if (a[category] > b[category]) {
@@ -130,10 +130,10 @@ class ProcessData {
         }
         return 0;
       });
-      
+
     //Return ordered characters list ascending or descending
       if (order === 1) {
-         return orderedCharactersList;
+        return orderedCharactersList;
       } else {
         let reverse = [...orderedCharactersList];
         return reverse.reverse();
@@ -148,7 +148,7 @@ class ProcessData {
       for (let i = this.characterPositionInSort; i <= maxCharactersPerPage; i++) {
         pageCharacters.push(allCharacters[i]);
       }
-  
+
       this.characterPositionInSort = maxCharactersPerPage + 1;
       return pageCharacters;
     }
@@ -157,21 +157,21 @@ class ProcessData {
       const allCharacters = this.sortCharactersBy(charactersData, category, order);
 
       let pageCharacters = [];
-      
+
       let maxCharactersPerPage = this.characterPositionInSort - 7;
 
       let position = maxCharactersPerPage - 7
-      
+
       if (position > 6) {
         for (let i = position; i <= maxCharactersPerPage; i++) {
           pageCharacters.push(allCharacters[i]);
           this.characterPositionInSort --
         }
-      } 
-
-         return pageCharacters;
       }
-    
+
+        return pageCharacters;
+      }
+
     // Creating array with characters filtered
     /**
      * @param {array} charactersData Array with characters
@@ -181,16 +181,15 @@ class ProcessData {
      */
 
     filterCharactersBy(charactersData, category, condition) {
-      
       let filteredCharactersList = charactersData.filter(character => {
         if (category === "books_featured_in") {
           condition = parseInt(condition);
           if (character[category].includes(condition)) {
-            
-             return true;
+
+            return true;
           }
         }else if (character[category] === condition) {
-           return true;
+          return true;
         }
       });
       return filteredCharactersList;
@@ -204,7 +203,7 @@ class ProcessData {
       for (let i = this.characterPositionInFilter; i <= maxCharactersPerPage; i++) {
         pageCharacters.push(allCharacters[i]);
       }
-  
+
       this.characterPositionInFilter = maxCharactersPerPage + 1;
       return pageCharacters;
     }
