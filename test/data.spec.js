@@ -8,7 +8,7 @@ const dataUnordered = {characters:[
   {"id":4, "name":"Pablo Marmol", "books_featured_in": [1,2,3,4,5,6,7], "house": "Hufflepuff", "species": "Ghoul"},
   {"id":5, "name":"Sr. Rajuela", "books_featured_in": [1,2,3,4,5,6,7], "house": "Slytherin", "species": "Basilisk"},
   {"id":6, "name":"Harvey Specter", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
-  {"id":7, "name":"Donna Paulsen", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
+  {"id":7, "name":"Donna Paulsen", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor (likely)", "species": "Human"},
   {"id":8, "name":"Louis Litt", "books_featured_in": [2,3,4], "house": "Slytherin", "species": "Acromantula"},
   {"id":9, "name":"Jessica Pearson", "books_featured_in": [1,2,3,4], "house": "Hufflepuff", "species": "Ghoul"},
   {"id":10, "name":"Mike Ross", "books_featured_in": [1,3,6], "house": "Ravenclaw", "species": "Mermaid"}
@@ -19,7 +19,7 @@ const dataOrdered = {characters:[
   {"id":5, "name":"Sr. Rajuela", "books_featured_in": [1,2,3,4,5,6,7], "house": "Slytherin", "species": "Basilisk"},
   {"id":3, "name":"Betty Marmol", "books_featured_in": [2,3,5,6,7], "house": "Ravenclaw", "species": "Centaur"},
   {"id":6, "name":"Harvey Specter", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
-  {"id":7, "name":"Donna Paulsen", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
+  {"id":7, "name":"Donna Paulsen", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor (likely)", "species": "Human"},
   {"id":2, "name":"Vilma Picapiedras", "books_featured_in": [1,2,5,7], "house": "Slytherin", "species": "Human"},
   {"id":9, "name":"Jessica Pearson", "books_featured_in": [1,2,3,4], "house": "Hufflepuff", "species": "Ghoul"},
   {"id":8, "name":"Louis Litt", "books_featured_in": [2,3,4], "house": "Slytherin", "species": "Acromantula"},
@@ -28,24 +28,23 @@ const dataOrdered = {characters:[
 ]};
 
 const filteredByHouses = {characters:[
+  {"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5], "house": "Gryffindor", "species": "Human"},
   {"id":6, "name":"Harvey Specter", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
-  {"id":7, "name":"Donna Paulsen", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
-  {"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5], "house": "Gryffindor", "species": "Human"}
 ]};
 
 const filteredByBooks = {characters:[
+  {"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5], "house": "Gryffindor", "species": "Human"},
+  {"id":2, "name":"Vilma Picapiedras", "books_featured_in": [1,2,5,7], "house": "Slytherin", "species": "Human"},
+  {"id":3, "name":"Betty Marmol", "books_featured_in": [2,3,5,6,7], "house": "Ravenclaw", "species": "Centaur"},
   {"id":4, "name":"Pablo Marmol", "books_featured_in": [1,2,3,4,5,6,7], "house": "Hufflepuff", "species": "Ghoul"},
   {"id":5, "name":"Sr. Rajuela", "books_featured_in": [1,2,3,4,5,6,7], "house": "Slytherin", "species": "Basilisk"},
-  {"id":3, "name":"Betty Marmol", "books_featured_in": [2,3,5,6,7], "house": "Ravenclaw", "species": "Centaur"},
-  {"id":2, "name":"Vilma Picapiedras", "books_featured_in": [1,2,5,7], "house": "Slytherin", "species": "Human"},
-  {"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5], "house": "Gryffindor", "species": "Human"}
 ]};
 
 const filteredBySpecies = {characters:[
-  {"id":6, "name":"Harvey Specter", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
-  {"id":7, "name":"Donna Paulsen", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
+  {"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5], "house": "Gryffindor", "species": "Human"},
   {"id":2, "name":"Vilma Picapiedras", "books_featured_in": [1,2,5,7], "house": "Slytherin", "species": "Human"},
-  {"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5], "house": "Gryffindor", "species": "Human"}
+  {"id":6, "name":"Harvey Specter", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor", "species": "Human"},
+  {"id":7, "name":"Donna Paulsen", "books_featured_in": [1,3,4,6,7], "house": "Gryffindor (likely)", "species": "Human"},
 ]};
 
 
@@ -76,7 +75,7 @@ describe('getOrderedNamesList', () => {
 // Tests for filterCharactersBy()
 describe('filterCharactersBy', () => {
   it ('is a function', () => {
-    expect(typeof processData.filterCharactersBy(dataUnordered.characters, "category", "condition").toEqual('object'));
+    expect(typeof processData.filterCharactersBy(dataUnordered.characters, "house", "Gryffindor")).toEqual('object');
   });
 
   it ('should return characters filtered by houses', () => {

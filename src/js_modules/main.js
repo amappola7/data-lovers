@@ -38,7 +38,7 @@ btnStartWelcomePage.addEventListener("click", () => {
 
 // Create ordered characters list
 const HarryPotterData = new ProcessData(rawData.allData);
-console.log("Data: ", HarryPotterData.filterCharactersBy(rawData.dataCharacters, "house", "Hufflepuff (possibly)"));
+// console.log("Data: ", HarryPotterData.filterCharactersBy(rawData.dataCharacters, "house", "Hufflepuff (possibly)"));
 
 // Display main page and characters list
 const creatingHTMLElements = new CreateContainersForCharactersSection();
@@ -154,7 +154,7 @@ filterModalMenu.addEventListener("change", (event) => {
                 }
             })
 
-            console.log("Hola", condition);
+            // console.log("Hola", condition);
             creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         } else if (event.target.name === "Species") {
             let value = event.target.value;
