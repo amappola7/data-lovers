@@ -104,6 +104,9 @@ describe('getOrderedNamesList', () => {
 
 /**Sort */
 describe('sortCharactersBy', () => {
+  it('is a function',()=>{
+    expect(typeof processData.sortCharactersBy(dataUnordered.characters,"name", 1)).toEqual('object');
+  });
   it('its parameters should be an object(array), a string, and a number',()=>{
     expect(typeof processData.sortCharactersBy(dataUnordered.characters,"name", 1)).toEqual('object','string','number');
   });

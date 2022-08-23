@@ -3,6 +3,8 @@ class ProcessData {
       // Importing characters and books from the dataset file
       this.characters = [];
       this.characterPosition = 0;
+      this.characterPositionInSort = 0;
+      this.characterPositionInFilter = 0;
     }
 
     // Creating the list of characters ordered by the number of books they appear in
@@ -14,9 +16,10 @@ class ProcessData {
       let importanceLevel5 = [];
       let importanceLevel6 = [];
       let importanceLevel7 = [];
-      let importanceLevel8 = [];
+      
 
       this.characters = data.characters
+      
       this.characters.forEach(character => {
         let characterName = character;
         let characterBooks = character.books_featured_in;
@@ -41,14 +44,14 @@ class ProcessData {
             importanceLevel6.push(characterName);
             break;
           case 1:
-            importanceLevel8.push(characterName);
+            importanceLevel7.push(characterName);
             break;
         }
       });
 
       let allArrayCharacters =  importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).
                                 concat(importanceLevel4).concat(importanceLevel5).concat(importanceLevel6).
-                                concat(importanceLevel7).concat(importanceLevel8);
+                                concat(importanceLevel7);
       return allArrayCharacters
 
     }
@@ -60,27 +63,14 @@ class ProcessData {
      */
 
     goToNextPage(data) {
-      const allCharacters = data;
+      const allCharacters = this.getOrderedNamesList(data);
       let pageCharacters = [];
       let maxCharactersPerPage = this.characterPosition + 7;
 
-      if(maxCharactersPerPage<=allCharacters.length){
-        for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
-          pageCharacters.push(allCharacters[i]);
-        }
-      }else{ 
-         
-        if(allCharacters.length < 7){
-          for (let i = 0; i < allCharacters.length; i++) {
-            pageCharacters.push(allCharacters[i]);
-          }
-        }else {
-          for (let i = 0; i < 7; i++) {
-            pageCharacters.push(allCharacters[i]);
-          }
-        }  
-       
+      for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
+        pageCharacters.push(allCharacters[i]);
       }
+  
       this.characterPosition = maxCharactersPerPage + 1;
       return pageCharacters;
     }
@@ -92,7 +82,7 @@ class ProcessData {
      */
 
     goToPreviousPage(data) {
-      const allCharacters = data;
+      const allCharacters = this.getOrderedNamesList(data);
 
       let pageCharacters = [];
       this.characterPosition -= 16;
@@ -129,7 +119,7 @@ class ProcessData {
         character[category] === null ? character[category] = "Unknown" : character[category];
              return character;
       }); 
-      console.log('Nuevo array despues de map',newCharactersData)
+      
       //Ordering characters
       let orderedCharactersList = [...newCharactersData].sort((a, b) => {
         if (a[category] > b[category]) {
@@ -140,7 +130,7 @@ class ProcessData {
         }
         return 0;
       });
-      console.log('Array ordenado por sort',orderedCharactersList)
+      
     //Return ordered characters list ascending or descending
       if (order === 1) {
          return orderedCharactersList;
@@ -150,6 +140,38 @@ class ProcessData {
       }
     }
 
+    goToNextPageInSort(charactersData, category, order) {
+      const allCharacters = this.sortCharactersBy(charactersData, category, order);
+      let pageCharacters = [];
+      let maxCharactersPerPage = this.characterPositionInSort + 7;
+
+      for (let i = this.characterPositionInSort; i <= maxCharactersPerPage; i++) {
+        pageCharacters.push(allCharacters[i]);
+      }
+  
+      this.characterPositionInSort = maxCharactersPerPage + 1;
+      return pageCharacters;
+    }
+
+    goToPreviousPageInSort(charactersData, category, order) {
+      const allCharacters = this.sortCharactersBy(charactersData, category, order);
+
+      let pageCharacters = [];
+      
+      let maxCharactersPerPage = this.characterPositionInSort - 7;
+
+      let position = maxCharactersPerPage - 7
+      
+      if (position > 6) {
+        for (let i = position; i <= maxCharactersPerPage; i++) {
+          pageCharacters.push(allCharacters[i]);
+          this.characterPositionInSort --
+        }
+      } 
+
+         return pageCharacters;
+      }
+    
     // Creating array with characters filtered
     /**
      * @param {array} charactersData Array with characters
@@ -172,6 +194,42 @@ class ProcessData {
         }
       });
       return filteredCharactersList;
+    }
+
+    goToNextPageInSortInFilter(charactersData, category, condition) {
+      const allCharacters = this.filterCharactersBy(charactersData, category, condition);
+      let pageCharacters = [];
+      let maxCharactersPerPage = this.characterPositionInFilter + 7;
+
+      for (let i = this.characterPositionInFilter; i <= maxCharactersPerPage; i++) {
+        pageCharacters.push(allCharacters[i]);
+      }
+  
+      this.characterPositionInFilter = maxCharactersPerPage + 1;
+      return pageCharacters;
+    }
+
+    goToPreviousPageInFilter(charactersData, category, condition) {
+      const allCharacters = this.filterCharactersBy(charactersData, category, condition);
+
+      let pageCharacters = [];
+      this.characterPositionInFilter -= 16;
+      let maxCharactersPerPage = this.characterPositionInFilter + 7;
+
+      if (this.characterPositionInFilter >= 0) {
+        for (let i = this.characterPositionInFilter; i <= maxCharactersPerPage; i++) {
+          pageCharacters.push(allCharacters[i]);
+        }
+      } else {
+        this.characterPositionInFilter = 0;
+        maxCharactersPerPage = this.characterPositionInFilter + 7;
+        for (let i = this.characterPositionInFilter; i <= maxCharactersPerPage; i++) {
+          pageCharacters.push(allCharacters[i]);
+        }
+      }
+
+      this.characterPositionInFilter += 8;
+      return pageCharacters;
     }
 
   }
