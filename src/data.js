@@ -186,27 +186,26 @@ class ProcessData {
        
       }
       
-      this.characterPositionInFilter++ // = maxCharactersPerPage + 1;
+      this.characterPositionInFilter++ 
       
        return pageCharacters;
     }
 
-    goToPreviousPageInFilter(charactersData, category, condition) {
-      const allCharacters = this.filterCharactersBy(charactersData, category, condition);
-
+    goToPreviousPageInFilter(charactersData) {
       let pageCharacters = [];
+
       this.characterPositionInFilter -= 16;
       let maxCharactersPerPage = this.characterPositionInFilter + 7;
 
       if (this.characterPositionInFilter >= 0) {
         for (let i = this.characterPositionInFilter; i <= maxCharactersPerPage; i++) {
-          pageCharacters.push(allCharacters[i]);
+          pageCharacters.push(charactersData[i]);
         }
       } else {
         this.characterPositionInFilter = 0;
         maxCharactersPerPage = this.characterPositionInFilter + 7;
-        for (let i = this.characterPositionInFilter; i <= maxCharactersPerPage; i++) {
-          pageCharacters.push(allCharacters[i]);
+        for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
+          pageCharacters.push(charactersData[i]);
         }
       }
 

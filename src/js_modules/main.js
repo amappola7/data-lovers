@@ -189,36 +189,37 @@ let btnNext =document.getElementById('btn-pagination-next-id')
                 btnNextPage.addEventListener("click", () => {
                     const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"house", value)
                     creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-                    
                })
+               btnPreviousPage.addEventListener("click", () => {
+                const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"house", value)
+                creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPageInFilter(charactersData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+           })
 
             resetPagination = false
         } else if (eventNameFilter === "Books") {
             btnBack.dataset.operation = 'books'
-            btnNext.dataset.operation = 'books'
-            
-            
+            btnNext.dataset.operation = 'books'           
             let condition = "";
-
             rawData.dataBooks.forEach(book => {
                 if (book.title === value) {
                     condition += book.id;
                 }
             })
-            const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)
-            
+            const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)           
             creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
             btnNextPage.addEventListener("click", () => {
-                
-            let condition = "";
-            rawData.dataBooks.forEach(book => {
+               let condition = "";
+               rawData.dataBooks.forEach(book => {
                 if (book.title === value) {
                     condition += book.id;
                 }
+               })
+               const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)
+               creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
             })
-            const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)
-
-                creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            btnPreviousPage.addEventListener("click", () => {
+                const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)
+                creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPageInFilter(charactersData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
             })
         
             resetPagination = false
@@ -235,7 +236,10 @@ let btnNext =document.getElementById('btn-pagination-next-id')
                 const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"species", value)
                 creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
             })
-        
+            btnPreviousPage.addEventListener("click", () => {
+                const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"species", value)
+                creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPageInFilter(charactersData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            })
             resetPagination = false
         }
 
