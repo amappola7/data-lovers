@@ -24,7 +24,7 @@ const sortModalMenu = document.getElementById("sort-modal-menu-id");
 const filterBtn = document.getElementById("filter-button-id");
 const exitFilterBtn = document.getElementById("exit-filter-modal-menu-id");
 const filterModalMenu = document.getElementById("filter-modal-menu-id");
-
+let resetPagination = false
 // Characters - Dataset
 let rawData = new RawData(data)
 
@@ -40,7 +40,8 @@ creatingHTMLElements.createNewOptions(rawData.getOnlyHousesList(rawData.getHouse
 
 //Event welcome button
 btnStartWelcomePage.addEventListener("click", () => {
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+    const allCharacters = HarryPotterData.getOrderedNamesList(rawData.allData);
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(allCharacters), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
     welcomePage.style.display = "none";
     header.style.display = "block";
     mainPage.style.display = "flex";
@@ -51,13 +52,15 @@ btnStartWelcomePage.addEventListener("click", () => {
 // Next Page
 btnNextPage.addEventListener("click", (e) => {
     if(e.target.dataset.operation === 'default'){
-    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+        const allCharacters = HarryPotterData.getOrderedNamesList(rawData.allData);
+    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(allCharacters), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
     }
 })
 // Previous Page
 btnPreviousPage.addEventListener("click", (e) => {
     if(e.target.dataset.operation === 'default'){
-        creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(rawData.allData), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+        const allCharacters = HarryPotterData.getOrderedNamesList(rawData.allData);
+        creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(allCharacters), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
     }
     
 })
@@ -122,62 +125,79 @@ exitFilterBtn.addEventListener("click", () => {
 
 // Events to sort data
 sortModalMenu.addEventListener("click", (event) => {
-    // HarryPotterData.characterPosition = 0;
+resetPagination = true
 let btnBack = document.getElementById('btn-pagination-back-id')
 let btnNext =document.getElementById('btn-pagination-next-id')
     if (event.target.textContent === "A-Z") {
         btnBack.dataset.operation = 'sortAZ'
         btnNext.dataset.operation = 'sortAZ'
-        creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSort(rawData.dataCharacters,"name", 1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+        const allCharacters = HarryPotterData.sortCharactersBy(rawData.dataCharacters, "name", 1);
+        creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(allCharacters,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         btnNextPage.addEventListener("click", () => {
-            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSort(rawData.dataCharacters,"name", 1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(allCharacters,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         })
         btnPreviousPage.addEventListener("click", () => {
-            let data = HarryPotterData.goToPreviousPageInSort(rawData.dataCharacters,"name", 1)
+            let data = HarryPotterData.goToPreviousPage(allCharacters)
             if(data.length !==0){
                 creatingHTMLElements.addCharacterList(data, "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
             }
 
         })
+        resetPagination = false 
     } else if (event.target.textContent === "Z-A") {
         btnBack.dataset.operation = 'sortZA'
         btnNext.dataset.operation = 'sortZA'
-        creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSort(rawData.dataCharacters,"name", -1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+        const allCharacters = HarryPotterData.sortCharactersBy(rawData.dataCharacters, "name", -1);
+        creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(allCharacters,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         btnNextPage.addEventListener("click", () => {
-            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSort(rawData.dataCharacters,"name", -1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(allCharacters,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         })
         btnPreviousPage.addEventListener("click", () => {
-            creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPageInSort(rawData.dataCharacters,"name", -1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(allCharacters), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         })
+        resetPagination = false 
     } else if (event.target.textContent === "Houses") {
         btnBack.dataset.operation = 'sortHouses'
         btnNext.dataset.operation = 'sortHouses'
-        creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSort(rawData.dataCharacters,"house", 1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+        const allCharacters = HarryPotterData.sortCharactersBy(rawData.dataCharacters, "house", 1);
+        creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(allCharacters, resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         btnNextPage.addEventListener("click", () => {
-            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSort(rawData.dataCharacters,"house", 1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(allCharacters, resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         })
         btnPreviousPage.addEventListener("click", () => {
-            creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPageInSort(rawData.dataCharacters,"house", 1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(allCharacters), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
         })
+        resetPagination = false 
     }
 
     sortModalMenu.style.display = "none";
 })
-
+let value 
+let eventNameFilter 
 // Events to filter data
 filterModalMenu.addEventListener("change", (event) => {
-        if (event.target.name === "Houses") {
-            let value = event.target.value;
-            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSortInFilter(rawData.dataCharacters,"house", value), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-            btnNextPage.addEventListener("click", () => {
-                creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSortInFilter(rawData.dataCharacters,"house", value), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-            })
-            // btnPreviousPage.addEventListener("click", () => {
-            //     creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPageInSort(rawData.dataCharacters,"house", 1), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-            // })
+resetPagination = true
+value = event.target.value;
+eventNameFilter =event.target.name
+let btnBack = document.getElementById('btn-pagination-back-id')
+let btnNext =document.getElementById('btn-pagination-next-id')
+        if (eventNameFilter === "Houses") {
+            btnBack.dataset.operation = 'houses'
+            btnNext.dataset.operation = 'houses'
+            const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"house", value)
+                creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+                btnNextPage.addEventListener("click", () => {
+                    const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"house", value)
+                    creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+                    
+               })
 
-        } else if (event.target.name === "Books") {
-            let value = event.target.value;
+            resetPagination = false
+        } else if (eventNameFilter === "Books") {
+            btnBack.dataset.operation = 'books'
+            btnNext.dataset.operation = 'books'
+            
+            
             let condition = "";
 
             rawData.dataBooks.forEach(book => {
@@ -185,11 +205,38 @@ filterModalMenu.addEventListener("change", (event) => {
                     condition += book.id;
                 }
             })
+            const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)
+            
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            btnNextPage.addEventListener("click", () => {
+                
+            let condition = "";
+            rawData.dataBooks.forEach(book => {
+                if (book.title === value) {
+                    condition += book.id;
+                }
+            })
+            const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"books_featured_in", condition)
 
-            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSortInFilter(rawData.dataCharacters,"books_featured_in", condition), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-        } else if (event.target.name === "Species") {
-            let value = event.target.value;
-            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInSortInFilter(rawData.dataCharacters,"species", value), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+                creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            })
+        
+            resetPagination = false
+        
+        } else if (eventNameFilter === "Species") {
+            btnBack.dataset.operation = 'species'
+            btnNext.dataset.operation = 'species'
+           
+            const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"species", value)
+            
+            creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            btnNextPage.addEventListener("click", () => {
+                
+                const charactersData = HarryPotterData.filterCharactersBy(rawData.dataCharacters,"species", value)
+                creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPageInFilter(charactersData,resetPagination), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
+            })
+        
+            resetPagination = false
         }
 
     filterModalMenu.style.display = "none";

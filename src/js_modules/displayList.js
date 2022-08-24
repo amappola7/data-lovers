@@ -43,7 +43,8 @@ class CreateContainersForCharactersSection {
   // Appending figure with image and caption to the main list section
   addCharacterList(data, srcImage, section){
     // Clean container list
-    this.containerCharacters = document.getElementById(`container-characters-${section}-id`);
+    if(data != null && data.length!=0){
+      this.containerCharacters = document.getElementById(`container-characters-${section}-id`);
     this.containerCharacters.innerHTML = "";
     this.arrayToAppendListCharacters = []
     // Append figures with characters to container list
@@ -54,6 +55,8 @@ class CreateContainersForCharactersSection {
   //The dynamic generation of the elements is separated from the aggregation of these to the DOM, to improve page performance
     this.containerCharacters.append(...this.arrayToAppendListCharacters)
 
+    }
+    
     // return this.containerCharacters
   }
 
