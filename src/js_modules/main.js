@@ -34,24 +34,17 @@ const creatingHTMLElements = new CreateContainersForCharactersSection();
 
 function paginationElement(){
     let sizeScreenWidth = document.documentElement.clientWidth
-    // let sizeScreenHeight = document.documentElement.clientHeight
-    
-     let size = ''
-    
+       
         if(sizeScreenWidth <= 799){
-            
-            size = 3 
+           return 4 
         }else if(sizeScreenWidth > 799 && sizeScreenWidth <=1440){
             
-            size = 7 
+            return 7 
         }else{
-            
-            size = 9 
+           return 9 
         }
-    
-    return size
 }
-
+console.log(paginationElement())
 
 // Display main page and characters list
 // creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.getOrderedNamesList(rawData.allData)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
