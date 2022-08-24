@@ -61,24 +61,7 @@ class ProcessData {
      * @returns {array} Returns an array with characters
      */
 
-    goToNextPage(allCharacters, resetPagination=false) {
-      
-      let pageCharacters = [];
-      let maxCharactersPerPage = 0;
-      maxCharactersPerPage = this.characterPosition + 7
-
-      if(resetPagination === true){
-        this.characterPosition = 0
-        maxCharactersPerPage = 7
-      }
-       for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
-        pageCharacters.push(allCharacters[i]);
-       }
-
-      this.characterPosition = maxCharactersPerPage + 1;
-      
-       return pageCharacters;
-    }
+   
 
     // Creating array with characters to pagination to the previous page
     /**
@@ -86,27 +69,7 @@ class ProcessData {
      * @returns {array} Returns an array with characters
      */
 
-    goToPreviousPage(allCharacters) {
-      let pageCharacters = [];
-
-      this.characterPosition -= 16;
-      let maxCharactersPerPage = this.characterPosition + 7;
-
-      if (this.characterPosition >= 0) {
-        for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
-          pageCharacters.push(allCharacters[i]);
-        }
-      } else {
-        this.characterPosition = 0;
-        maxCharactersPerPage = this.characterPosition + 7;
-        for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
-          pageCharacters.push(allCharacters[i]);
-        }
-      }
-
-      this.characterPosition += 8;
-      return pageCharacters;
-    }
+    
 
     // Creating array with ordered characters
     /**
@@ -165,6 +128,47 @@ class ProcessData {
         }
       });
       return filteredCharactersList;
+    }
+
+    goToNextPage(allCharacters, resetPagination=false) {
+      
+      let pageCharacters = [];
+      let maxCharactersPerPage = 0;
+      maxCharactersPerPage = this.characterPosition + 7
+
+      if(resetPagination === true){
+        this.characterPosition = 0
+        maxCharactersPerPage = 7
+      }
+       for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
+        pageCharacters.push(allCharacters[i]);
+       }
+
+      this.characterPosition = maxCharactersPerPage + 1;
+      
+       return pageCharacters;
+    }
+
+    goToPreviousPage(allCharacters) {
+      let pageCharacters = [];
+
+      this.characterPosition -= 16;
+      let maxCharactersPerPage = this.characterPosition + 7;
+
+      if (this.characterPosition >= 0) {
+        for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
+          pageCharacters.push(allCharacters[i]);
+        }
+      } else {
+        this.characterPosition = 0;
+        maxCharactersPerPage = this.characterPosition + 7;
+        for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
+          pageCharacters.push(allCharacters[i]);
+        }
+      }
+
+      this.characterPosition += 8;
+      return pageCharacters;
     }
 
     goToNextPageInFilter(allCharacters, resetPagination=false) {
