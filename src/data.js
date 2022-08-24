@@ -130,15 +130,16 @@ class ProcessData {
       return filteredCharactersList;
     }
 
-    goToNextPage(allCharacters, resetPagination=false) {
+    
+    goToNextPage(allCharacters, resetPagination=false, paginationElement=7) {
       
       let pageCharacters = [];
       let maxCharactersPerPage = 0;
-      maxCharactersPerPage = this.characterPosition + 7
+      maxCharactersPerPage = this.characterPosition + paginationElement
 
       if(resetPagination === true){
         this.characterPosition = 0
-        maxCharactersPerPage = 7
+        maxCharactersPerPage = paginationElement
       }
        for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
         pageCharacters.push(allCharacters[i]);
@@ -149,11 +150,11 @@ class ProcessData {
        return pageCharacters;
     }
 
-    goToPreviousPage(allCharacters) {
+    goToPreviousPage(allCharacters,paginationElement=7) {
       let pageCharacters = [];
 
-      this.characterPosition -= 16;
-      let maxCharactersPerPage = this.characterPosition + 7;
+      this.characterPosition -= (paginationElement * 2) + 2;
+      let maxCharactersPerPage = this.characterPosition + paginationElement;
 
       if (this.characterPosition >= 0) {
         for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
@@ -161,13 +162,13 @@ class ProcessData {
         }
       } else {
         this.characterPosition = 0;
-        maxCharactersPerPage = this.characterPosition + 7;
+        maxCharactersPerPage = this.characterPosition + paginationElement;
         for (let i = this.characterPosition; i <= maxCharactersPerPage; i++) {
           pageCharacters.push(allCharacters[i]);
         }
       }
 
-      this.characterPosition += 8;
+      this.characterPosition += paginationElement + 1;
       return pageCharacters;
     }
 
