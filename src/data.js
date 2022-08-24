@@ -72,7 +72,8 @@ class ProcessData {
       }
 
       this.characterPosition = maxCharactersPerPage + 1;
-      return pageCharacters;
+      
+       return pageCharacters;
     }
 
     // Creating array with characters to pagination to the previous page
@@ -85,6 +86,7 @@ class ProcessData {
       const allCharacters = this.getOrderedNamesList(data);
 
       let pageCharacters = [];
+
       this.characterPosition -= 16;
       let maxCharactersPerPage = this.characterPosition + 7;
 
@@ -156,20 +158,42 @@ class ProcessData {
     goToPreviousPageInSort(charactersData, category, order) {
       const allCharacters = this.sortCharactersBy(charactersData, category, order);
 
-      let pageCharacters = [];
+      // let pageCharacters = [];
 
-      let maxCharactersPerPage = this.characterPositionInSort - 7;
+      // let maxCharactersPerPage = this.characterPositionInSort - 8;
 
-      let position = maxCharactersPerPage - 7
+      // let position = maxCharactersPerPage - 8
 
-      if (position > 6) {
-        for (let i = position; i <= maxCharactersPerPage; i++) {
-          pageCharacters.push(allCharacters[i]);
-          this.characterPositionInSort --
+      // if (position > 7) {
+      //   for (let i = position; i <= maxCharactersPerPage; i++) {
+      //     pageCharacters.push(allCharacters[i]);
+      //     this.characterPositionInSort --
+      //   }
+      // }
+
+      //   return pageCharacters;
+
+        let pageCharacters = [];
+
+        this.characterPositionInSort -= 16;
+        let maxCharactersPerPage = this.characterPositionInSort + 7;
+  
+        if (this.characterPosition >= 0) {
+          for (let i = this.characterPositionInSort; i <= maxCharactersPerPage; i++) {
+            pageCharacters.push(allCharacters[i]);
+          }
+        } else {
+          this.characterPositionInSort = 0;
+          maxCharactersPerPage = this.characterPositionInSort + 7;
+          for (let i = this.characterPositionInSort; i <= maxCharactersPerPage; i++) {
+            pageCharacters.push(allCharacters[i]);
+          }
         }
-      }
-
+  
+        this.characterPositionInSort += 8;
         return pageCharacters;
+
+
       }
 
     // Creating array with characters filtered

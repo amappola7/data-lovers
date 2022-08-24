@@ -1,4 +1,4 @@
-import CreateContainersForCharactersSection from "./displayList.mjs"
+import CreateContainersForCharactersSection from "./displayList.js"
 
 class DetailsCharacters extends CreateContainersForCharactersSection {
     constructor(){

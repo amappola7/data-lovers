@@ -1,6 +1,8 @@
 import ProcessData from '../src/data.js'
-const processData = new ProcessData
+import CreateContainersForCharactersSection from '../src/js_modules/displayList'
 
+const processData = new ProcessData
+const creatingHTMLElements = new CreateContainersForCharactersSection();
 
 const dataUnordered = {characters:[
   {"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5], "house": "Gryffindor", "species": "Human",},
@@ -28,6 +30,7 @@ const dataOrderedComputeStats = {characters:[
   {"id":10, "name":"Mike Ross", "books_featured_in": [1,3,6], "house": "Ravenclaw", "species": "Mermaid"},
   {"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5], "house": "Gryffindor", "species": "Human"}
 ]};
+
 
 /**Sort */
 const dataOrderedSortData_AZ = {characters:[
@@ -93,12 +96,36 @@ describe('getOrderedNamesList', () => {
     expect(typeof processData.getOrderedNamesList(dataUnordered)).toEqual('object');
   });
   it('its parameters should be an object(array)',()=>{
-    expect(typeof processData.sortCharactersBy(dataUnordered.characters)).toEqual('object');
+    expect(typeof processData.getOrderedNamesList(dataUnordered)).toEqual('object');
   });
   it('should order the characters according to the number of books where they appear',()=>{
     expect(processData.getOrderedNamesList(dataUnordered)).toEqual(dataOrderedComputeStats.characters);
   });
 
+  it('The argument should not be a string',()=>{
+    expect(typeof dataUnordered).toEqual('object')
+  });
+})
+
+describe('goToNextPage', () => {
+  it('is a function',()=>{
+    expect(typeof processData.goToNextPage(dataUnordered)).toEqual('object');
+  });
+  it('its parameters should be an object(array)',()=>{
+    expect(typeof processData.goToNextPage(dataUnordered)).toEqual('object');
+  });
+   it('The argument should not be a string',()=>{
+    expect(typeof dataUnordered).toEqual('object')
+  });
+})
+
+describe('goToPreviousPage', () => {
+  it('is a function',()=>{
+    expect(typeof processData.goToPreviousPage(dataUnordered)).toEqual('object');
+  });
+  it('its parameters should be an object(array)',()=>{
+    expect(typeof processData.goToPreviousPage(dataUnordered)).toEqual('object');
+  });
   it('The argument should not be a string',()=>{
     expect(typeof dataUnordered).toEqual('object')
   });
@@ -141,3 +168,13 @@ describe('filterCharactersBy', () => {
     expect(processData.filterCharactersBy(dataUnordered.characters,"species", "Human")).toEqual(filteredBySpecies.characters);
   });
 })
+
+describe('CreateContainersForCharactersSection', ()=>{
+  it('is an object',()=>{
+    expect(typeof CreateContainersForCharactersSection).toEqual('function');
+  });
+
+  it('The CreateContainersForCharactersSection instance should be an object',()=>{
+    expect(typeof creatingHTMLElements).toEqual('object');
+  });
+});

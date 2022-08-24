@@ -53,6 +53,8 @@ class CreateContainersForCharactersSection {
     })
   //The dynamic generation of the elements is separated from the aggregation of these to the DOM, to improve page performance
     this.containerCharacters.append(...this.arrayToAppendListCharacters)
+
+    // return this.containerCharacters
   }
 
   // Function to hide the list characters section
