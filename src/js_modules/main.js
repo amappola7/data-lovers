@@ -22,6 +22,7 @@ const filterBtn = document.getElementById("filter-button-id");
 const exitFilterBtn = document.getElementById("exit-filter-modal-menu-id");
 const filterModalMenu = document.getElementById("filter-modal-menu-id");
 let resetPagination = false
+
 // Characters - Dataset
 let rawData = new RawData(data)
 
@@ -42,7 +43,6 @@ function paginationElement() {
 }
 
 // Display main page and characters list
-
 creatingHTMLElements.createNewOptions(rawData.getOnlySpeciesList(rawData.getSpeciesList()), "species");
 creatingHTMLElements.createNewOptions(rawData.getBooksList(), "books");
 creatingHTMLElements.createNewOptions(rawData.getOnlyHousesList(rawData.getHousesList()), "houses");
@@ -73,11 +73,6 @@ btnPreviousPage.addEventListener("click", (e) => {
         creatingHTMLElements.addCharacterList(HarryPotterData.goToPreviousPage(allCharacters, paginationElement()), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
     }
 })
-
-//creatingHTMLElements.addCharacterList(HarryPotterData.goToNextPage(HarryPotterData.getOrderedNamesList(rawData.allData)), "https://imagizer.imageshack.com/img923/332/wM4EDt.png", "list");
-creatingHTMLElements.createNewOptions(rawData.getOnlySpeciesList(rawData.getSpeciesList()), "species");
-creatingHTMLElements.createNewOptions(rawData.getBooksList(), "books");
-creatingHTMLElements.createNewOptions(rawData.getOnlyHousesList(rawData.getHousesList()), "houses");
 
 // Create characters card
 const detailsDataCharacters = new DetailsCharacters();

@@ -10,9 +10,10 @@ class RawData{
         this.dataBooks.forEach((elem) => {
             books.push(elem.title)
         })
-        // console.log('Lista de libros',books)
+        console.log('Lista de libros',books)
         return books
     }
+    
     getBooksListById(bookIdArray){
         let booksName = []
         this.dataBooks.forEach((elem) => {
