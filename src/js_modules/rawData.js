@@ -19,7 +19,7 @@ class RawData{
             if(bookIdArray.includes(elem.id))
             booksName.push(elem.title)
         })
-        // console.log('Lista de libros por id',booksName)
+        console.log('Lista de libros por id',booksName)
         return booksName
     }
     getSpeciesList(){
