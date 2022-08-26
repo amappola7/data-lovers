@@ -1,8 +1,9 @@
-import data from '../src/data/harrypotter/data.js'
 import ProcessData from '../src/data.js'
-// import HarryPotterData from '../src/js_modules/allData.mjs'
- let proccessData = new ProcessData(data);
- let functionProcessData =  proccessData.getOrderedNamesList();
+const processData = new ProcessData
+
+const dataUnordered = {characters:[{"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5]},{"id":2, "name":"Vilma Picapiedras", "books_featured_in": [1,2,5,7]},{"id":3, "name":"Betty Marmol", "books_featured_in": [2,3,5,6,7]},{"id":4, "name":"Pablo Marmol", "books_featured_in": [1,2,3,4,5,6,7]},{"id":5, "name":"Sr. Rajuela", "books_featured_in": [1,2,3,4,5,6,7]}]}
+const dataOrdered = {characters:[{"id":4, "name":"Pablo Marmol", "books_featured_in": [1,2,3,4,5,6,7]},{"id":5, "name":"Sr. Rajuela", "books_featured_in": [1,2,3,4,5,6,7]},{"id":3, "name":"Betty Marmol", "books_featured_in": [2,3,5,6,7]},{"id":2, "name":"Vilma Picapiedras", "books_featured_in": [1,2,5,7]},{"id":1, "name":"Pedro Picapiedras", "books_featured_in": [5]}]}
+
 
 describe('ProcessData', ()=>{
   it('is a object',()=>{
@@ -10,34 +11,20 @@ describe('ProcessData', ()=>{
   });
 
   it('is a object',()=>{
-    expect(typeof proccessData).toEqual('object');
+    expect(typeof processData).toEqual('object');
   });
 });
 
-describe('functionProcessData', ()=>{
+describe('getOrderedNamesList', ()=>{
   it('is a function',()=>{
-    expect(typeof functionProcessData).toEqual('object');
+    expect(typeof processData.getOrderedNamesList(dataUnordered)).toEqual('object');
   });
 
-  // it('should have Harry Potter between its top 50 objects',()=>{
-  //   expect(functionProcessData.forEach((elem, index)=>{
-  //     //Validar el nombre de harry potter en la propiedad name
-  //     if(elem.name === 'Harry Potter'){
-  //       let indexHarryPotter =index
-  //        if(indexHarryPotter <= 50){
-  //         return true
-  //        }else{
-  //         return false
-  //        }
-  //     }
-  //   })
-  //     ).toBe(true);
-  // });
-});
+  it('should order the characters according to the number of books where they appear',()=>{
+    expect(processData.getOrderedNamesList(dataUnordered)).toEqual(dataOrdered.characters);
+  });
 
-
-//Validar el nombre de harry potter en la propiedad name
-//Encontra la posición del objeto de Harry Potter en el arreglo
-//Validar que si la posición está dentro de los primeros 50 personajes
-//Si se encuentra entre los primeros 50 retornar verdadero
-//Si no se encuentra entre los primeros 50 retornar falso
+  it('The argument should not be a string',()=>{
+    expect(typeof dataUnordered).toEqual('object')
+  });
+})

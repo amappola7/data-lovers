@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06fecf1d-8215-4668-9542-e0a3ae5b8ccf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/data.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/data.spec.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +31,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.pretest">
     <configuration name="pretest" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -67,6 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660341981104</updated>
       <workItem from="1660341983467" duration="588000" />
+      <workItem from="1660502786393" duration="11000" />
     </task>
     <servers />
   </component>
