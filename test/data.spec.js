@@ -169,6 +169,7 @@ describe('filterCharactersBy', () => {
   });
 })
 
+
 describe('CreateContainersForCharactersSection', ()=>{
   it('is an object',()=>{
     expect(typeof CreateContainersForCharactersSection).toEqual('function');

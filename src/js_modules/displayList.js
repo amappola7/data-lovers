@@ -57,7 +57,6 @@ class CreateContainersForCharactersSection {
 
     }
     
-    // return this.containerCharacters
   }
 
   // Function to hide the list characters section
