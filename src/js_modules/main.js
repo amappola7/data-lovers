@@ -12,7 +12,6 @@ const welcomePage = document.getElementById("content-welcome-page-id");
 const btnStartWelcomePage = document.getElementById("btn-start-welcome-page-id");
 const header = document.getElementById("header-main-page-id");
 const mainPage = document.getElementById("main-page-id");
-// const containerCharactersList = document.getElementById("container-characters-list-id");
 const footer = document.getElementById("footer-main-page-id");
 const btnNextPage = document.getElementById("btn-pagination-next-id");
 const btnPreviousPage = document.getElementById("btn-pagination-back-id");
@@ -42,7 +41,7 @@ function paginationElement() {
         return 9
     }
 }
-paginationElement()
+// paginationElement()
 
 // Display main page and characters list
 

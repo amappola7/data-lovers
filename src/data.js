@@ -119,7 +119,7 @@ class ProcessData {
   /**
    * 
    * @param {Array} allCharacters receives the ordered data according to what is returned by sortCharacterBy or getOrderedNamesList
-   * @param {Boolean} resetPagination 
+   * @param {Boolean} resetPagination reset counter value
    * @param {Number} paginationElement contains the number of elements the page should display, depending on the width of the viewport
    * @returns {Array} returns the number of characters to display, paginated, according to the size of the viewport
    */
