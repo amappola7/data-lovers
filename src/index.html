@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harry Potter's World | Characters</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./desktop.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./desktop.css" media="screen and (min-width: 1000px)"/>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Henny+Penny&family=IBM+Plex+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
@@ -37,9 +38,33 @@
           <ul class="father-modal-menu">
             <li><button type="button" class="button-modify-data sort-btn" id="sort-button-id" data-btn="Aquí estoy"><i class="fa-solid fa-arrow-down-wide-short"></i>Sort</button></li>
             <ul class="sort-modal-menu" id="sort-modal-menu-id">
-              <li><button type="button" class="">Houses</button></li>
+              <div class="sort-modal-menu-container">
+                <span>Sort by: <button class="exit-sort-modal-menu-button" id="exit-sort-modal-menu-id"><i class="fa-solid fa-xmark"></i></button></span>
+                <li><button type="button" class="sort-option">A-Z</button></li>
+                <li><button type="button" class="sort-option">Z-A</button></li>
+                <li><button type="button" class="sort-option">Houses</button></li>
+              </div>
             </ul>
             <li><button type="button" class="button-modify-data" id="filter-button-id"><i class="fa-solid fa-filter"></i>Filter</button></li>
+            <ul class="filter-modal-menu" id="filter-modal-menu-id">
+              <span>Filter by: <button class="exit-filter-modal-menu-button" id="exit-filter-modal-menu-id"><i class="fa-solid fa-xmark"></i></button></span>
+              <li>
+                <select name="Houses" id="select-houses">
+                  <option value="" selected>Houses</option>
+                </select>
+              </li>
+              <li>
+                <select name="Books" id="select-books">
+                  <option value="" selected>Books</option>
+                </select>
+              </li>
+              <li>
+                <select name="Species" id="select-species">
+                  <option value="" selected>Species</option>
+
+                </select>
+              </li>
+            </ul>
           </ul>
         </nav>
       </header>
@@ -56,15 +81,14 @@
     <!-- Footer with Pagination -->
     <footer class="footer-main-page" id="footer-main-page-id">
       <ul class="pagination-list">
-        <li><button class="btn-pagination btn-pagination-back button-modify-data" id="btn-pagination-back-id">Back</button></li>
-        <li><button class="btn-pagination btn-pagination-next button-modify-data" id="btn-pagination-next-id">Next</button></li>
+        <li><button class="btn-pagination btn-pagination-back button-modify-data" id="btn-pagination-back-id" data-operation = "default">Back</button></li>
+        <li><button class="btn-pagination btn-pagination-next button-modify-data" id="btn-pagination-next-id" data-operation = "default">Next</button></li>
       </ul>
     </footer>
 
     <!-- JS Script -->
     <script src="./js_modules/main.js" type="module"></script>
     <script src="./data.js" type="module"></script>
-    
     <!-- <script src="./js_modules/main.mjs" type="module"></script> -->
   </body>
 </html>
