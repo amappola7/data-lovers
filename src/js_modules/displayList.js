@@ -56,7 +56,6 @@ class CreateContainersForCharactersSection {
     this.containerCharacters.append(...this.arrayToAppendListCharacters)
 
     }
-    
   }
 
   // Function to hide the list characters section
