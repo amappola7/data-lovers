@@ -6,6 +6,12 @@ class ProcessData {
     this.characterPositionInFilter = 0;
   }
 
+  /**
+   * 
+   * @param {Array} data contains of the raw data
+   * @returns {Array} with the characters ordered according to the number of books where they appear
+   * 
+   */
   // Creating the list of characters ordered by the number of books they appear in
   getOrderedNamesList(data) {
     let importanceLevel1 = [];
@@ -47,10 +53,10 @@ class ProcessData {
       }
     });
 
-    let allArrayCharacters = importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).
-      concat(importanceLevel4).concat(importanceLevel5).concat(importanceLevel6).
-      concat(importanceLevel7);
-    return allArrayCharacters
+    return importanceLevel1.concat(importanceLevel2).concat(importanceLevel3).
+          concat(importanceLevel4).concat(importanceLevel5).concat(importanceLevel6).
+          concat(importanceLevel7);
+    // return allArrayCharacters
 
   }
 
@@ -110,6 +116,13 @@ class ProcessData {
     return filteredCharactersList;
   }
 
+  /**
+   * 
+   * @param {Array} allCharacters receives the ordered data according to what is returned by sortCharacterBy or getOrderedNamesList
+   * @param {Boolean} resetPagination 
+   * @param {Number} paginationElement contains the number of elements the page should display, depending on the width of the viewport
+   * @returns {Array} returns the number of characters to display, paginated, according to the size of the viewport
+   */
 
   goToNextPage(allCharacters, resetPagination = false, paginationElement = 7) {
     let pageCharacters = [];
@@ -171,7 +184,11 @@ class ProcessData {
 
     return pageCharacters;
   }
-
+/**
+ * 
+ * @param {Array} charactersData contains the filtered data
+ * @returns 7 elements filtered
+ */
   goToPreviousPageInFilter(charactersData) {
     let pageCharacters = [];
 

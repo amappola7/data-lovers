@@ -2,7 +2,7 @@
 import dataSet from '../data/harrypotter/data.js';
 import ProcessData from '../data.js';
 import CreateContainersForCharactersSection from './displayList.js';
-import DetailsCharacters from './detailsCharacters.mjs'
+import DetailsCharacters from './detailsCharacters.js'
 import RawData from './rawData.js'
 
 // Data Cruda
