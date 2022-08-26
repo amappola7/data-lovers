@@ -114,7 +114,7 @@ describe('goToNextPage', () => {
   it('its parameters should be an object(array)',()=>{
     expect(typeof processData.goToNextPage(dataUnordered)).toEqual('object');
   });
-   it('The argument should not be a string',()=>{
+  it('The argument should not be a string',()=>{
     expect(typeof dataUnordered).toEqual('object')
   });
 })
