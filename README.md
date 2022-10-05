@@ -39,3 +39,7 @@ Los botones back y next permiten navegar por las tarjetas de personaje.
 En la parte superior están ubicados los botones filter y sort, que dentro contienen todas las opciones de ordenado y filtrado que facilitarán la búsqueda.
 
 Por último, al ingresar dentro de la tarjeta de cada personajes hallarás su información más relevante: Fecha de nacimiento, especie, género, casa a la que pertenece, etc.
+
+## Colaboradoras
+[Yaneth Hernández](https://github.com/yaneth-hernandez) | [Amappola](https://github.com/amappola7/)
+
